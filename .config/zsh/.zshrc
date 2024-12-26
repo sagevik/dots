@@ -48,7 +48,6 @@ alias gp="git push"
 alias gls="git ls-files"
 alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
 alias grv="git remote -v"
-alias cfg="/usr/bin/git --git-dir=$HOME/config/ --work-tree=$HOME"
 
 # Vim
 alias v="vim"
