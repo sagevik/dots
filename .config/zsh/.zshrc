@@ -1,7 +1,7 @@
 # ----------> Exports <---------- #
 export BROWSER="brave"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export MYVIMRC="$HOME/.config/vim/.vimrc"
 export VIMINIT="source $MYVIMRC"
 export LESSHISTFILE=-
@@ -50,12 +50,13 @@ alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 alias grv="git remote -v"
 
 # Vim
-alias v="vim"
+alias v="nvim"
 
 # Edit configs
-alias zshrc="vim ~/.config/zsh/.zshrc"
-alias xinitrc="vim ~/.xinitrc"
-alias vimrc="vim ~/.config/vim/.vimrc"
+alias zshrc="nvim ~/.config/zsh/.zshrc"
+alias xinitrc="nvim ~/.xinitrc"
+alias vimrc="nvim ~/.config/vim/.vimrc"
+alias nviminit="nvim ~/.config/nvim/init.lua"
 
 # Jotta
 alias jc="jotta-cli"
