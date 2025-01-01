@@ -2,8 +2,6 @@
 export BROWSER="brave"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MYVIMRC="$HOME/.config/vim/.vimrc"
-export VIMINIT="source $MYVIMRC"
 export LESSHISTFILE=-
 export GIT_CONFIG_GLOBAL="$HOME/.config/git/.gitconfig"
 
