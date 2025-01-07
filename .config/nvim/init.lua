@@ -1,12 +1,20 @@
 
+-- Tabs
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4")
+
 -- Colorscheme
 vim.cmd('colorscheme slate')
+
 -- Transparent background
 vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
 
 -- Add Neovim-specific Lua configurations below
-vim.opt.number = true  -- Enable line numbers
-vim.opt.relativenumber = true  -- Enable relative line numbers
+-- Enable line numbers and relative line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Set cursorline and color
 vim.opt.cursorline = true
