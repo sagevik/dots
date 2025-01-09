@@ -85,7 +85,6 @@ alias bashrc="vim ~/.config/bash/.bashrc"
 alias xinitrc="vim ~/.xinitrc"
 alias profile="vim ~/.config/bash/.bash_profile"
 alias vimrc="vim ~/.config/vim/.vimrc"
-alias sxhkdrc=edit_and_reload_sxhkdrc
 
 # Jotta
 alias jc="jotta-cli"
