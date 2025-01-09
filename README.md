@@ -21,6 +21,11 @@ and use stow to symlink the files.
 ```
 $ git clone https://github.com/sagevik/dotfiles.git
 $ cd dotfiles
-$ stow .
+$ stow <package>
+```
+### Example
+To stow dotfiles for bash and zsh, use:
+```
+$ stow bash zsh
 ```
 
