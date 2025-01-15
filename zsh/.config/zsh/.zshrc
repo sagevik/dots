@@ -159,8 +159,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
-# Load zsh-syntax-highlighting
+# Load zsh plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/.config/zsh/plugins/zsh-autosuggestions-master/zsh-autosuggestions.zsh 2>/dev/null
 
 # zoxide
 eval "$(zoxide init zsh)"
