@@ -1,0 +1,5 @@
+# ~/.xprofile
+
+# Set environment variables for X sessions
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
