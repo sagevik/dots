@@ -171,8 +171,8 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Load zsh plugins
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source ~/.config/zsh/plugins/zsh-autosuggestions-master/zsh-autosuggestions.zsh 2>/dev/null
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zoxide
 eval "$(zoxide init zsh)"
