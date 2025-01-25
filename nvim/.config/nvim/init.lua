@@ -1,4 +1,3 @@
-
 -- Resize buffer window with Alt + vim keys
 vim.api.nvim_set_keymap('n', '<M-k>', ':resize +2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', { noremap = true, silent = true })
@@ -13,6 +12,15 @@ vim.cmd("set shiftwidth=4")
 
 -- Line wrap
 vim.o.wrap = false
+
+-- Enable folding
+vim.opt.foldenable = true
+-- Set folding method (manual, indent, syntax, marker)
+vim.opt.foldmethod = "manual"
+-- Set fold level (99 to keep all folds open by default)
+vim.opt.foldlevel = 0
+-- Define custom markers if using marker folding
+-- vim.opt.foldmarker = "{{{,}}}"
 
 -- Colorscheme
 vim.cmd('colorscheme slate')
