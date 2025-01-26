@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Keyboard layout
+setxkbmap no &
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -31,10 +34,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-
-
-# Keyboard layout
-setxkbmap no -option ctrl:nocaps &
 
 # Screen resolution
 xrandr --output eDP-1 --primary --mode 1920x1200 --pos 0x0 --rotate normal &
