@@ -11,7 +11,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 -- Line wrap
-vim.o.wrap = false
+vim.opt.wrap = false
 
 -- Enable folding
 vim.opt.foldenable = true
