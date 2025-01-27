@@ -1,8 +1,8 @@
 -- Resize buffer window with Alt + vim keys
-vim.api.nvim_set_keymap('n', '<M-k>', ':resize +2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-j>', ':resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-S-k>', ':resize +2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-S-j>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-S-h>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-S-l>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 
 -- Tabs
 vim.cmd("set expandtab")
