@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Keyboard layout
-setxkbmap no &
+setxkbmap no
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
