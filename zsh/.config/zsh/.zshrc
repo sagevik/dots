@@ -84,14 +84,13 @@ fzfcd() {
 #    cd $1
     if [ -z $1 ]
     then
-        #selection="$(ls -a | fzf --height 40% --reverse --border)"
-        selection="$(ls -d */ | fzf --reverse --border)"
+        selection="$(fzf --reverse --border)"
         if [[ -d "$selection" ]]
         then
             cd "$selection"
         elif [[ -f "$selection" ]]
         then
-            echo "$selection is a file"
+            cd "$(dirname $selection)"
         fi
     fi
 }
