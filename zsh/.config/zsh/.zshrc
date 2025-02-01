@@ -50,6 +50,11 @@ alias grv="git remote -v"
 # Vim
 alias v="nvim"
 
+# tmux
+alias ta="tmux new-session -A -s $1"
+alias tmls="tmux ls"
+alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
+
 # Edit configs
 alias zshrc="nvim ~/.config/zsh/.zshrc"
 alias xinitrc="nvim ~/.xinitrc"
