@@ -10,8 +10,8 @@ export LIBVIRT_DEFAULT_URI=qemu:///system
 export GOPATH="$HOME/dev/go"
 export PATH="$HOME/dev/go/bin:$PATH"
 
-#export MANPAGER="vim +MANPAGER -"
-export MANPAGER="less --RAW-CONTROL-CHARS --use-color --color=d+g --color=u+y"
+export MANPAGER="nvim +Man!"
+#export MANPAGER="less --RAW-CONTROL-CHARS --use-color --color=d+g --color=u+y"
 export MANROFFOPT="-c"
 
 # Basic auto/tab complete:
