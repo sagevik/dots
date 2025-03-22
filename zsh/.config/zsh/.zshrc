@@ -180,3 +180,5 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+. "$HOME/.local/bin/env"
