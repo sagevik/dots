@@ -2,14 +2,14 @@
     "position": "top",
     "height": 20,
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "cpu", "memory","network", "clock" ,"tray"],
+    "modules-right": ["pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
     "tray": {
         "spacing": 10
     },
     "clock": {
     	"interval": 1,
     	"timezone": "Europe/Oslo",
-    	"format": " {:%Y-%m-%d   %I:%M}",
+    	"format": " {:%Y-%m-%d   %H:%M}",
     	"tooltip": false,
     },
     "cpu": {
@@ -25,10 +25,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% ",
-        "format-charging": "{capacity}%",
-        "format-plugged": "{capacity}%",
-        "format-alt": "{time} ",
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% {icon}",
+        "format-plugged": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
