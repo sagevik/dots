@@ -13,11 +13,11 @@
     	"tooltip": false,
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": " {}%"
     },
     "battery": {
         "states": {
@@ -25,10 +25,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon} {capacity}%",
+        "format-plugged": "{icon} {capacity}%",
+        "format-alt": "{icon} {time}",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
@@ -39,12 +39,12 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "{volume}%  / {format_source}",
-        "format-bluetooth": "{volume}%    {format_source}",
+        "format": "  {volume}% / {format_source}",
+        "format-bluetooth": "  {volume}%  {format_source}",
         "format-bluetooth-muted": " {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
-        "on-click": "pulsemixer"
+        "on-click": "pavucontrol"
     }
 }
