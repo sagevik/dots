@@ -136,7 +136,10 @@ button:hover {
     color: @fg-white;
     background-color: @green-charging;
 }
-
+#custom-pacman:hover {
+    background-color: @blue-dark;
+    color: @fg-white;
+}
 @keyframes blink {
     to {
         background-color: @fg-white;

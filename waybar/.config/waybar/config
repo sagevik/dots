@@ -2,7 +2,7 @@
     "position": "top",
     "height": 20,
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
+    "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
     "tray": {
         "spacing": 5
     },
@@ -46,5 +46,16 @@
         "format-source": " {volume}%",
         "format-source-muted": "",
         "on-click": "pavucontrol"
+    },
+    "custom/arch": {
+        "format": " :",
+    },
+    "custom/pacman": {
+        "format": "  {text} ",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "kitty -e 'archupdate'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8
     }
 }
