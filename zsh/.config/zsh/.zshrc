@@ -51,7 +51,7 @@ alias grv="git remote -v"
 alias v="nvim"
 
 # tmux
-alias ta="tmux new-session -A -s $1"
+alias t="tmux new-session -A -s _x_"
 alias tmls="tmux ls"
 alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
 
@@ -60,6 +60,7 @@ alias zshrc="nvim ~/.config/zsh/.zshrc"
 alias xinitrc="nvim ~/.xinitrc"
 alias vimrc="nvim ~/.config/vim/.vimrc"
 alias nviminit="nvim ~/.config/nvim/init.lua"
+alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
 
 # Jotta
 alias jc="jotta-cli"
@@ -166,8 +167,8 @@ git_status() {
 }
 
 PROMPT='%B%F{cyan}  %B%F{green}%~ $(git_status)%B%F{cyan} %b%F{white}'
-#RPROMPT='%b%F{white}%T'
-#PROMPT="%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%M %F{magenta}%~%F{red}]%F{green}$(git_status)$%{$reset_color%}%b "
+# RPROMPT='%b%F{white}%T'
+# PROMPT="%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%M %F{magenta}%~%F{red}]%F{green}$(git_status)$%{$reset_color%}%b "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -181,3 +182,14 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zoxide
 eval "$(zoxide init zsh)"
 
+# Define the function
+run_tmux_sessionizer() {
+    tmuxsessionizer
+    zle -R # Refresh the display
+}
+
+# Register the widget
+zle -N run_tmux_sessionizer
+
+# Bind Ctrl+G to the function
+bindkey '^G' run_tmux_sessionizer
