@@ -170,10 +170,54 @@ PROMPT='%B%F{cyan}  %B%F{green}%~ $(git_status)%B%F{cyan} %b%F{white}'
 # RPROMPT='%b%F{white}%T'
 # PROMPT="%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%M %F{magenta}%~%F{red}]%F{green}$(git_status)$%{$reset_color%}%b "
 
+# Enable history appending and sharing
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+
+fh() {
+    # Determine mode and set fzf prompt
+    if [[ "$1" == "e" ]]; then
+        mode="Execute"
+        fzf_prompt="Execute > "
+    else
+        mode="Copy"
+        fzf_prompt="Copy > "
+    fi
+
+    clear
+    cmd=$(history 1 | fzf --reverse --height 100% --border --tac +s --prompt="$fzf_prompt")
+    cmd=$(echo "$cmd" | sed 's/ *[0-9]\+\*\{0,1\} *//')
+
+    [[ -z "$cmd" ]] && return 0
+
+    echo "--> cmd: $cmd <--"
+
+    # Handle mode: copy or execute
+    if [[ "$mode" == "Execute" ]]; then
+        # Execute the command
+        eval "$cmd"
+    else
+        # echo -n "$cmd" | wl-copy  # For Wayland
+        echo -n "$cmd" | xclip -selection clipboard  # Uncomment for X11
+        echo "Command copied to clipboard!"
+    fi
+}
+
+# alias for execute from history
+alias fhe="fh e"
 
 # Load zsh plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
