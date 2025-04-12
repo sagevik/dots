@@ -226,14 +226,3 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zoxide
 eval "$(zoxide init zsh)"
 
-# Define the function
-run_tmux_sessionizer() {
-    tmuxsessionizer
-    zle -R # Refresh the display
-}
-
-# Register the widget
-zle -N run_tmux_sessionizer
-
-# Bind Ctrl+G to the function
-bindkey '^G' run_tmux_sessionizer
