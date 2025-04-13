@@ -1,7 +1,9 @@
 awk
-sed
-find
-mv
 cp
+find
+fzf
+mv
 rm
+sed
 tr
+zsh
