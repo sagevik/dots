@@ -1,3 +1,31 @@
+# --- Colors ---
+
+# kanagawa colors
+dragonBlack0="#0d0c0c"
+dragonBlack1="#12120f"
+dragonBlack2="#1D1C19"
+dragonBlack3="#181616"
+dragonBlack4="#282727"
+dragonBlack5="#393836"
+dragonBlack6="#625e5a"
+
+dragonWhite="#c5c9c5"
+dragonGreen="#87a987"
+dragonGreen2="#8a9a7b"
+dragonPink="#a292a3"
+dragonOrange="#b6927b"
+dragonOrange2="#b98d7b"
+dragonGray="#a6a69c"
+dragonGray2="#9e9b93"
+dragonGray3="#7a8382"
+dragonBlue2="#8ba4b0"
+dragonViolet=" #8992a7"
+dragonRed="#c4746e"
+dragonAqua="#8ea4a2"
+dragonAsh="#737c73"
+dragonTeal="#949fb5"
+dragonYellow="#c4b28a"
+
 # ----------> Exports <---------- #
 export BROWSER="brave"
 export EDITOR="nvim"
@@ -61,6 +89,7 @@ alias xinitrc="nvim ~/.xinitrc"
 alias vimrc="nvim ~/.config/vim/.vimrc"
 alias nviminit="nvim ~/.config/nvim/init.lua"
 alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
+alias riverconf="nvim ~/.config/river/init"
 
 # Jotta
 alias jc="jotta-cli"
@@ -162,13 +191,13 @@ git_status() {
         echo ""
 	return
     else
-        echo "%B%F{yellow}($(parse_git_branch)%F{red}$(parse_git_dirty)%F{yellow}) "
+        echo "%B%F{$dragonAsh}($(parse_git_branch)$(parse_git_dirty)) "
     fi
 }
 
-PROMPT='%B%F{cyan}  %B%F{green}%~ $(git_status)%B%F{cyan} %b%F{white}'
-# RPROMPT='%b%F{white}%T'
-# PROMPT="%B%F{red}[%F{yellow}%n%F{green}@%F{blue}%M %F{magenta}%~%F{red}]%F{green}$(git_status)$%{$reset_color%}%b "
+PROMPT='%B%F{$dragonBlue2}  %B%F{$dragonGreen}%~ $(git_status)%B%F{$dragonBlue2} %b%F{$dragonWhite}'
+# RPROMPT='%b%F{$dragonWhite}%T'
+# PROMPT="%B%F{$dragonRed}[%F{$dragonYellow}%n%F{$dragonGreen}@%F{$dragonBlue2}%M %F{$dragonPink}%~%F{i$dragonRed}]%F{$dragonGreen}$(git_status)$%{$reset_color%}%b "
 
 # Enable history appending and sharing
 export HISTFILESIZE=1000000000
@@ -223,6 +252,12 @@ alias fhe="fh e"
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# fzf
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}'"
+
 # zoxide
 eval "$(zoxide init zsh)"
 
+
+[ -f "/home/rs/.ghcup/env" ] && . "/home/rs/.ghcup/env" # ghcup-env
