@@ -1,2 +1,2 @@
 --pager="less -R -X"
---theme="Nord"
+--theme="base16-256"
