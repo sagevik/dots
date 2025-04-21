@@ -1,2 +1,2 @@
---pager="less -R -X"
+--pager="less -RF -X"
 --theme="base16-256"
