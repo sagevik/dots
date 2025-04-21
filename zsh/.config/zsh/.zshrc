@@ -119,7 +119,7 @@ fzfcd() {
 #    cd $1
     if [ -z $1 ]
     then
-        selection="$(fzf --reverse --border)"
+        selection="$(fzf --no-preview --reverse --border)"
         if [[ -d "$selection" ]]
         then
             cd "$selection"
