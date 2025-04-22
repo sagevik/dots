@@ -80,7 +80,8 @@ alias grv="git remote -v"
 alias v="nvim"
 
 # tmux
-alias t="tmux new-session -A -s _x_"
+# NB use single quotes (') for evaluating expression at runtime
+alias t='tmux new-session -A -s $(basename $(pwd))'
 alias tmls="tmux ls"
 alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
 
