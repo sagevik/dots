@@ -5,5 +5,7 @@ fzf
 mv
 rm
 sed
+tar
 tr
+zip
 zsh
