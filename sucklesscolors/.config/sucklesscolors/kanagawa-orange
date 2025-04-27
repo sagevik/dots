@@ -9,3 +9,9 @@ dwm.normbordercolor: #1d1c19
 dwm.selbordercolor: #b98d7b
 dwm.selbgcolor:  #b98d7b
 
+dmenu.foreground: #c5c9c5
+dmenu.background: #1d1c19
+
+dmenu.selforeground: #1d1c19
+dmenu.selbackground: #b98d7b
+

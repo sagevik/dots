@@ -1,4 +1,4 @@
-! dwm specific settings
+! dwm specific settings for dwmblue
 dwm.normfgcolor: #eeeeee
 dwm.selfgcolor:  #eeeeee
 dwm.normbgcolor2: #eeeeee
@@ -8,4 +8,10 @@ dwm.normbordercolor: #444444
 
 dwm.selbordercolor: #005577
 dwm.selbgcolor:  #005577
+
+dmenu.foreground: #eeeeee
+dmenu.background: #222222
+
+dmenu.selforeground: #eeeeee
+dmenu.selbackground: #005577
 

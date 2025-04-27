@@ -1,4 +1,4 @@
-! dwm specific settings
+! dwm specific settings for kanagawa-blue
 dwm.normfgcolor: #c5c9c5
 dwm.selfgcolor:  #c5c9c5
 
@@ -8,4 +8,10 @@ dwm.normbordercolor: #1d1c19
 
 dwm.selbordercolor: #8ba4b0
 dwm.selbgcolor:  #8ba4b0
+
+dmenu.foreground: #c5c9c5
+dmenu.background: #1d1c19
+
+dmenu.selforeground: #1d1c19
+dmenu.selbackground: #8ba4b0
 

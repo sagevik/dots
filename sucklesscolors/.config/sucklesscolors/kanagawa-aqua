@@ -1,4 +1,4 @@
-! dwm specific settings
+! dwm specific settings for kanagawa-aqua
 dwm.normfgcolor: #c5c9c5
 dwm.selfgcolor:  #c5c9c5
 
@@ -8,4 +8,10 @@ dwm.normbordercolor: #1d1c19
 
 dwm.selbordercolor: #8ea4a2
 dwm.selbgcolor:  #8ea4a2
+
+dmenu.foreground: #c5c9c5
+dmenu.background: #1d1c19
+
+dmenu.selforeground: #1d1c19
+dmenu.selbackground: #8ea4a2
 
