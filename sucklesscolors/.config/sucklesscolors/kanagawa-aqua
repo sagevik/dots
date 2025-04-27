@@ -1,0 +1,11 @@
+! dwm specific settings
+dwm.normfgcolor: #c5c9c5
+dwm.selfgcolor:  #c5c9c5
+
+dwm.normbgcolor: #1d1c19
+dwm.normbgcolor2: #1d1c19
+dwm.normbordercolor: #1d1c19
+
+dwm.selbordercolor: #8ea4a2
+dwm.selbgcolor:  #8ea4a2
+
