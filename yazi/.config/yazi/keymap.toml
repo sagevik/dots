@@ -30,5 +30,5 @@ desc = "Cd to ~/temp"
 
 [[manager.prepend_keymap]]
 on = "<C-n>"
-run = 'shell -- dragon --and-exit "$@"'
+run = 'shell -- dragon-drop --and-exit "$@"'
 # run = 'shell -- dragon -x -a -T "$@"'
