@@ -79,6 +79,16 @@ alias grv="git remote -v"
 # Vim
 alias v="nvim"
 
+# Zathura pdf
+function pdf() {
+    if [ $# -eq 0 ]; then
+        return
+    else
+        devour zathura "$1"
+    fi
+}
+alias fpdf='devour zathura "$(fd . -e pdf | fzf)"'
+
 # tmux
 # handle directory paths containing spaces
 tmux_named_session(){
