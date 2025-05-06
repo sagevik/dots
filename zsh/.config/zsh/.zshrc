@@ -270,9 +270,9 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf
-source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="--no-preview"
 # export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}'"
+source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init zsh)"
