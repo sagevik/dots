@@ -49,6 +49,7 @@ function pdf() {
 alias fpdf='devour zathura "$(fd . -e pdf | fzf)"'
 
 # tmux
+bindkey -s '^f' "tmuxsessionizer\n"
 alias t=tmuxsessionizer
 alias ta="tmux attach"
 alias tmls="tmux ls"
