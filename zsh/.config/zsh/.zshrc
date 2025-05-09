@@ -1,30 +1,5 @@
 # --- Colors ---
-
-# kanagawa colors
-dragonBlack0="#0d0c0c"
-dragonBlack1="#12120f"
-dragonBlack2="#1D1C19"
-dragonBlack3="#181616"
-dragonBlack4="#282727"
-dragonBlack5="#393836"
-dragonBlack6="#625e5a"
-
-dragonWhite="#c5c9c5"
-dragonGreen="#87a987"
-dragonGreen2="#8a9a7b"
-dragonPink="#a292a3"
-dragonOrange="#b6927b"
-dragonOrange2="#b98d7b"
-dragonGray="#a6a69c"
-dragonGray2="#9e9b93"
-dragonGray3="#7a8382"
-dragonBlue2="#8ba4b0"
-dragonViolet=" #8992a7"
-dragonRed="#c4746e"
-dragonAqua="#8ea4a2"
-dragonAsh="#737c73"
-dragonTeal="#949fb5"
-dragonYellow="#c4b28a"
+[[ -f ~/.config/zsh/colors.zsh ]] && source ~/.config/zsh/colors.zsh
 
 # ----------> Exports <---------- #
 export BROWSER="brave"
@@ -95,7 +70,8 @@ tmux_named_session(){
     session_name=$(basename "$(pwd)" | tr ' ' '_')
     tmux new-session -A -s $session_name
 }
-alias t=tmux_named_session
+# alias t=tmux_named_session
+alias t=tmuxsessionizer
 alias ta="tmux attach"
 alias tmls="tmux ls"
 alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
@@ -107,6 +83,7 @@ alias vimrc="nvim ~/.config/vim/.vimrc"
 alias nviminit="nvim ~/.config/nvim/init.lua"
 alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
 alias riverconf="nvim ~/.config/river/init"
+alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
 
 # Jotta
 alias jc="jotta-cli"
