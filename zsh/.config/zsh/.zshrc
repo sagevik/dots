@@ -27,13 +27,14 @@ alias lla="ls -la"
 
 # Git
 alias ga="git add"
-alias gst="git status"
-alias gc="git commit"
 alias gb="git branch"
-alias gp="git push"
-alias gls="git ls-files"
+alias gc="git commit"
+alias gd="git diff"
 alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias gls="git ls-files"
+alias gp="git push"
 alias grv="git remote -v"
+alias gst="git status"
 
 # Vim
 alias v="nvim"
