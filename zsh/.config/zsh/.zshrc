@@ -65,12 +65,6 @@ function pdf() {
 alias fpdf='devour zathura "$(fd . -e pdf | fzf)"'
 
 # tmux
-# handle directory paths containing spaces
-tmux_named_session(){
-    session_name=$(basename "$(pwd)" | tr ' ' '_')
-    tmux new-session -A -s $session_name
-}
-# alias t=tmux_named_session
 alias t=tmuxsessionizer
 alias ta="tmux attach"
 alias tmls="tmux ls"
