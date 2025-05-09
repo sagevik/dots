@@ -4,6 +4,8 @@
 @define-color gray-light #b3b3b3;
 @define-color gray-dark #64727D;
 @define-color blue-dark #005577;
+@define-color dragon-blue #8ba4b0;
+@define-color dragon-black2 #1D1C19;
 @define-color red-critical #f53c3c;
 @define-color red-urgent #eb4d4b;
 @define-color green-charging #26A65B;
@@ -67,8 +69,8 @@ button:hover {
 }
 
 #workspaces button.active {
-    color: @fg-white;
-    background: @blue-dark;
+    color: @dragon-black2;
+    background: @dragon-blue;
 }
 
 #workspaces button.focused {
