@@ -1,5 +1,6 @@
 # Zathura configuration file
 # See man `man zathurarc'
+set database sqlite
 
 
 # One page per row by default
