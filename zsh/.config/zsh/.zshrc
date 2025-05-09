@@ -36,10 +36,10 @@ alias ..="cd .."
 
 # ls
 alias ls="ls --color=auto"
-alias ll="ls -l --color=auto"
-alias la="ls -a --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
 alias lc="ls | wc -l"
-alias lla="ls -la --color=auto"
+alias lla="ls -la"
 
 # Git
 alias ga="git add"
