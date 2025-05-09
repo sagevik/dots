@@ -1,22 +1,6 @@
 # --- Colors ---
 [[ -f ~/.config/zsh/colors.zsh ]] && source ~/.config/zsh/colors.zsh
 
-# ----------> Exports <---------- #
-export BROWSER="brave"
-export EDITOR="nvim"
-export VISUAL="nvim"
-export LESSHISTFILE=-
-export GIT_CONFIG_GLOBAL="$HOME/.config/git/.gitconfig"
-
-export XCURSOR_SIZE=16
-export LIBVIRT_DEFAULT_URI=qemu:///system
-export GOPATH="$HOME/dev/go"
-export PATH="$HOME/dev/go/bin:$PATH"
-
-export MANPAGER="nvim +Man!"
-#export MANPAGER="less --RAW-CONTROL-CHARS --use-color --color=d+g --color=u+y"
-export MANROFFOPT="-c"
-
 # Basic auto/tab complete:
 autoload -Uz compinit
 setopt PROMPT_SUBST
