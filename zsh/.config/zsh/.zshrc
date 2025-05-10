@@ -41,16 +41,16 @@ alias v="nvim"
 
 # Zathura pdf
 function pdf() {
-    if [ $# -eq 0 ]; then
+    if [ -z "$1" ]; then
         return
     else
         devour zathura "$1"
     fi
 }
-alias fpdf='devour zathura "$(fd . -e pdf | fzf)"'
+alias fpdf='pdf "$(fd . -e pdf | fzf)"'
 
 # tmux
-bindkey -s '^f' "tmuxsessionizer\n"
+bindkey -s '^@' "tmuxsessionizer\n"
 alias t=tmuxsessionizer
 alias ta="tmux attach"
 alias tmls="tmux ls"
