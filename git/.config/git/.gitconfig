@@ -1,0 +1,7 @@
+[user]
+	email = rsagevik@gmail.com
+	name = sagevik
+[core]
+	editor = nvim -f
+[init]
+	defaultBranch = main
