@@ -11,6 +11,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)		# Include hidden files.
 
+# vi mode
+bindkey -v
+
 # ----------> Aliases <---------- #
 alias reload="source $HOME/.config/zsh/.zshrc"
 alias sctl="sudo systemctl"
