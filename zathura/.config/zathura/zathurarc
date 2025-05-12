@@ -14,7 +14,7 @@ set database sqlite
 # maps
 # map r reload
 # map p print
-# map i recolor
+map i recolor
 # map J zoom out
 # map K zoom in
 # map R rotate
@@ -25,40 +25,41 @@ set database sqlite
 # set guioptions ""
 
 # zathurarc-dark
-# set font "inconsolata 15"
-# set default-bg "#000000" #00
-# set default-fg "#F7F7F6" #01
+set font "inconsolata 15"
+set default-bg "#1d1c19" #00
+set default-fg "#c5c9c5" #01
 
-# set statusbar-fg "#B0B0B0" #04
-# set statusbar-bg "#202020" #01
+set recolor "true"
+set recolor-lightcolor "#1D1C19" #00
+set recolor-darkcolor "#c5c9c5" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
 
-# set inputbar-bg "#151515" #00 currently not used
-# set inputbar-fg "#FFFFFF" #02
+set statusbar-fg "#12120f" #04
+set statusbar-bg "#1d1c19" #01
 
-# set notification-error-bg "#AC4142" #08
-# set notification-error-fg "#151515" #00
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
 
-# set notification-warning-bg "#AC4142" #08
-# set notification-warning-fg "#151515" #00
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#151515" #00
 
-# set highlight-color "#F4BF75" #0A
-# set highlight-active-color "#6A9FB5" #0D
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#151515" #00
 
-# set completion-highlight-fg "#000000" #02
-# set completion-highlight-bg "#00BCD4B3" #0C
 
-# set completion-bg "#30303003" #02
-# set completion-fg "#FFC107C4" #0C
+set highlight-color "rgba(139, 164, 176, 0.5)"
+# set highlight-active-color "rgba(139, 164, 176, 0.5)"
 
-# set notification-bg "#90A959" #0B
-# set notification-fg "#151515" #00
+set completion-highlight-fg "#000000" #02
+set completion-highlight-bg "#00BCD4B3" #0C
 
-# set recolor "true"
-# set recolor-lightcolor "#000000" #00
-# set recolor-darkcolor "#E0E0E0" #06
-# set recolor-reverse-video "true"
-# set recolor-keephue "true"
+set completion-bg "#30303003" #02
+set completion-fg "#FFC107C4" #0C
 
-# set selection-clipboard clipboard
-# set render-loading "false"
-# set scroll-step 50
+set notification-bg "#8a9a7b" #0B
+set notification-fg "#1c1d19" #00
+
+set selection-clipboard clipboard
+set render-loading "false"
+set scroll-step 50
