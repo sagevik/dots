@@ -1,0 +1,17 @@
+! dwm specific settings for black-metal
+dwm.normfgcolor: #6c6c6c
+dwm.selfgcolor:  #6c6c6c
+
+dwm.normbgcolor: #000000
+dwm.normbgcolor2: #000000
+dwm.normbordercolor: #000000
+
+dwm.selbordercolor: #395454
+dwm.selbgcolor:  #395454
+
+dmenu.foreground: #6c6c6c
+dmenu.background: #000000
+
+dmenu.selforeground: #000000
+dmenu.selbackground: #395454
+
