@@ -113,7 +113,7 @@ palette = 15=#c0c5ce
 # adjust-box-thickness = 
 # grapheme-width-method = unicode
 # freetype-load-flags = hinting,force-autohint,monochrome,autohint
-# theme = 
+theme = Kanagawa Dragon
 # selection-foreground = 
 # selection-background = 
 # selection-invert-fg-bg = false
@@ -128,7 +128,7 @@ palette = 15=#c0c5ce
 # mouse-hide-while-typing = false
 # mouse-shift-capture = false
 # mouse-scroll-multiplier = 1
-# background-opacity = 0.9
+background-opacity = 0.9
 # background-blur = false
 # unfocused-split-opacity = 0.7
 # unfocused-split-fill = 
