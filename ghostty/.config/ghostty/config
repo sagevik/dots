@@ -1,62 +1,26 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /home/rs/.config/ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
-
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
+font-family = Iosevka
+font-size = 12
 # window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+theme = Kanagawa Dragon
+
 shell-integration = zsh
 
-keybind = alt+k=scroll_page_lines:-2
-keybind = alt+j=scroll_page_lines:2
+scrollback-limit = 10000000
 
-font-family = Hack
-font-size = 12
+keybind = super+alt+k=scroll_page_lines:-2
+keybind = super+alt+j=scroll_page_lines:2
 
 window-decoration = none
+background-opacity = 0.98
 
+cursor-invert-fg-bg = false
+cursor-opacity = 0.8
 
-# Color scheme from st terminal
+# Colors
 foreground=gray90
 background=#181616
-cursor-color=gray90
-# cursor-text=gray90
+cursor-color=#c5c9c5
+# cursor-text=#c5c9c5
 
 palette = 0=#2b303b
 palette = 1=#bf616a
@@ -113,14 +77,11 @@ palette = 15=#c0c5ce
 # adjust-box-thickness = 
 # grapheme-width-method = unicode
 # freetype-load-flags = hinting,force-autohint,monochrome,autohint
-theme = Kanagawa Dragon
 # selection-foreground = 
 # selection-background = 
 # selection-invert-fg-bg = false
 # minimum-contrast = 1
 # cursor-color = 
-# cursor-invert-fg-bg = false
-# cursor-opacity = 1
 # cursor-style = block
 # cursor-style-blink = 
 # cursor-text = 
@@ -128,7 +89,6 @@ theme = Kanagawa Dragon
 # mouse-hide-while-typing = false
 # mouse-shift-capture = false
 # mouse-scroll-multiplier = 1
-background-opacity = 0.97
 # background-blur = false
 # unfocused-split-opacity = 0.7
 # unfocused-split-fill = 
@@ -137,13 +97,9 @@ background-opacity = 0.97
 # initial-command = 
 # wait-after-command = false
 # abnormal-command-exit-runtime = 250
-# scrollback-limit = 10000000
 # link-url = true
 # maximize = false
 # fullscreen = false
-# title = 
-# class = 
-# x11-instance-name = 
 # working-directory = 
 # keybind = ctrl+comma=open_config
 # keybind = shift+insert=paste_from_selection
