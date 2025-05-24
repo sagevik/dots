@@ -225,6 +225,7 @@ fh() {
 # alias for execute from history
 alias fhe="fh e"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#757575"
 # Load zsh plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
