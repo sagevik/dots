@@ -22,7 +22,8 @@ alias sctl="sudo systemctl"
 alias ..="cd .."
 
 # ls
-alias ls="ls --color=auto"
+# alias ls="ls --color=auto"
+alias ls="eza --icons=always --color=always"
 alias ll="ls -l"
 alias la="ls -a"
 alias lc="ls | wc -l"
