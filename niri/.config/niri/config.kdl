@@ -116,7 +116,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 5
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -124,8 +124,8 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    // center-focused-column "never"
-    center-focused-column "on-overflow"
+    center-focused-column "never"
+    // center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -359,8 +359,9 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+P hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "run"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "run"; }
+    Mod+Shift+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "window"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -377,6 +378,10 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "volume" "down"; }
     XF86AudioMute        allow-when-locked=true { spawn "volume" "mute"; }
     // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86MonBrightnessUp { spawn "brightness" "up"; }
+    XF86MonBrightnessDown { spawn "brightness" "down"; }
+    // Mod+XF86MonBrightnessDown { spawn "brightness" "setbrightness"; }
 
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
@@ -559,12 +564,18 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Plus { set-column-width "+10%"; }
+    // Mod+Minus { set-column-width "-1%"; }
+    // Mod+Plus { set-column-width "+1%"; }
+    Mod+Alt+L { set-column-width "-1%"; }
+    Mod+Alt+H { set-column-width "+1%"; }
+
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Plus { set-window-height "+10%"; }
+    // Mod+Shift+Minus { set-window-height "-5%"; }
+    // Mod+Shift+Plus { set-window-height "+5%"; }
+    Mod+Alt+K { set-window-height "-5%"; }
+    Mod+Alt+J { set-window-height "+5%"; }
+
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
@@ -580,7 +591,7 @@ binds {
     // a matching layout switch hotkey configured in xkb options above.
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    Mod+Space       { switch-layout "next"; }
+    // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
@@ -603,5 +614,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
 }
