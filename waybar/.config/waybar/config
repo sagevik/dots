@@ -1,7 +1,7 @@
 {
     "position": "top",
     "height": 20,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["niri/workspaces"],
     "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
     "tray": {
         "spacing": 5
@@ -57,5 +57,19 @@
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
         "on-click": "kitty -e 'archupdate'; pkill -SIGRTMIN+8 waybar", // update system
         "signal": 8
+    },
+    "niri/workspaces": {
+        "format": "{index}",
+        "format-icons": {
+            // Named workspaces
+            // (you need to configure them in niri)
+            "browser": "",
+            "discord": "",
+            "chat": "<b></b>",
+
+            // Icons by state
+            "active": "",
+            "default": ""
+        }
     }
 }
