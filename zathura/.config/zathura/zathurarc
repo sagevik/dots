@@ -23,11 +23,11 @@ map R rotate
 # set guioptions ""
 
 # zathurarc-dark
-set font "Cantarell 15"
+set font "Hack 12"
 set default-bg "#1d1c19" #00
 set default-fg "#c5c9c5" #01
 
-set recolor "true"
+set recolor "false"
 set recolor-lightcolor "#1D1C19" #00
 set recolor-darkcolor "#c5c9c5" #06
 set recolor-reverse-video "true"
