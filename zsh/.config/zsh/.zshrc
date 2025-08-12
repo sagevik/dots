@@ -1,6 +1,8 @@
 # --- Colors ---
 [[ -f ~/.config/zsh/colors.zsh ]] && source ~/.config/zsh/colors.zsh
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Basic auto/tab complete:
 autoload -Uz compinit
 setopt PROMPT_SUBST
@@ -23,7 +25,7 @@ alias ..="cd .."
 
 # ls
 # alias ls="ls --color=auto"
-alias ls="eza --icons=always --color=always"
+alias ls="eza --icons=never --color=always"
 alias ll="ls -l"
 alias la="ls -a"
 alias lc="ls | wc -l"
@@ -40,9 +42,6 @@ alias gp="git push"
 alias grv="git remote -v"
 alias gst="git status"
 
-# Vim
-alias v="nvim"
-
 # Zathura pdf
 function pdf() {
     if [ -z "$1" ]; then
@@ -54,7 +53,8 @@ function pdf() {
 alias fpdf='pdf "$(fd . -e pdf | fzf)"'
 
 # tmux
-bindkey -s '^@' "tmuxsessionizer\n"
+bindkey -s '^ ' "tmuxsessionizer\n"
+# bindkey -s '^@' "tmuxsessionizer\n"
 alias t=tmuxsessionizer
 alias ta="tmux attach"
 alias tmls="tmux ls"
@@ -169,13 +169,13 @@ git_status() {
         echo ""
 	return
     else
-        echo "%B%F{$dragonAsh}($(parse_git_branch)$(parse_git_dirty)) "
+        echo "%B%F{$ash}($(parse_git_branch)$(parse_git_dirty)) "
     fi
 }
 
-PROMPT='%B%F{$dragonBlue2}  %B%F{$dragonGreen}%~ $(git_status)%B%F{$dragonBlue2} %b%F{$dragonWhite}'
-# RPROMPT='%b%F{$dragonWhite}%T'
-# PROMPT="%B%F{$dragonRed}[%F{$dragonYellow}%n%F{$dragonGreen}@%F{$dragonBlue2}%M %F{$dragonPink}%~%F{i$dragonRed}]%F{$dragonGreen}$(git_status)$%{$reset_color%}%b "
+PROMPT='%B%F{$blue2}  %B%F{$green}%~ $(git_status)%B%F{$blue2} %b%F{$white}'
+# RPROMPT='%b%F{$white}%T'
+# PROMPT="%B%F{$red}[%F{$yellow}%n%F{$green}@%F{$blue2}%M %F{$pink}%~%F{i$red}]%F{$green}$(git_status)$%{$reset_color%}%b "
 
 # Enable history appending and sharing
 export HISTFILESIZE=1000000000
