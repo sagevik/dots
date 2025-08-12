@@ -10,7 +10,8 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-riverctl spawn "swaybg -i ~/pix/wallpapers/moss.jpg"
+# riverctl spawn "swaybg -i ~/pix/wallpapers/moss.jpg"
+swaybg -i ~/pix/wallpapers/moss.jpg &
 
 riverctl spawn waybar
 
@@ -19,7 +20,7 @@ riverctl keyboard-layout no
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn kitty
 
-riverctl map normal Super Space spawn "wofi -S drun"
+riverctl map normal Super Space spawn "rofi -show run"
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -47,13 +48,19 @@ riverctl map normal Super+Shift Comma send-to-output previous
 # Super+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super+Shift Return zoom
 
+# Map layouts
+riverctl map normal Super T send-layout-cmd wideriver "--layout left --stack dwindle --count 1 --ratio 0.55"
+riverctl map normal Super+Shift T send-layout-cmd wideriver "--layout left --stack even --count 2 --ratio 0.55"
+riverctl map normal Super M send-layout-cmd wideriver "--layout monocle"
+riverctl map normal Super+Shift M send-layout-cmd wideriver "--layout wide --stack diminish --count 3 --ratio 0.4"
+
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+# riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+# riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super I send-layout-cmd wideriver "--count +1"
+riverctl map normal Super+Shift I send-layout-cmd wideriver "--count -1"
 
 # Super+Alt+{H,J,K,L} to move views
 riverctl map normal Super+Alt H move left 100
@@ -167,6 +174,27 @@ riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 3 -outer-padding 3 &
 
+# set layout manager
+riverctl default-layout wideriver
+
+# start layout manager
+wideriver \
+    --layout                       left        \
+    --layout-alt                   monocle     \
+    --stack                        dwindle     \
+    --count-master                 1           \
+    --ratio-master                 0.50        \
+    --count-wide-left              0           \
+    --ratio-wide                   0.35        \
+    --no-smart-gaps                            \
+    --inner-gaps                   2           \
+    --outer-gaps                   2           \
+    --border-width                 3           \
+    --border-width-monocle         0           \
+    --border-width-smart-gaps      0           \
+    --border-color-focused         "0x770000"  \
+    --border-color-focused-monocle "0x586e75"  \
+    --border-color-unfocused       "0x586e75"  \
+    --log-threshold                info        \
+   > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &

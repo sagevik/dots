@@ -1,3 +1,4 @@
+
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
@@ -13,7 +14,7 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-                layout "no"
+            layout "no"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             options "caps:escape"
         }
@@ -111,6 +112,15 @@ output "eDP-1" {
     position x=0 y=0
 }
 
+cursor {
+    xcursor-size 24
+    hide-after-inactive-ms 3000
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -119,13 +129,11 @@ layout {
     gaps 5
 
     // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
+    // - "never", default behavior, focusing an off-screen column will keep at the left or right edge of the screen.
     // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
+    // - "on-overflow", focusing a column will center it if it doesn't fit together with the previously focused column.
     center-focused-column "never"
-    // center-focused-column "on-overflow"
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -139,6 +147,25 @@ layout {
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
+    }
+
+    tab-indicator {
+        // off
+        hide-when-single-tab
+        place-within-column
+        gap 2
+        width 4
+        length total-proportion=0.75
+        position "left"
+        gaps-between-tabs 1
+        corner-radius 1
+        // active-color "red"
+        inactive-color "gray"
+        urgent-color "red"
+    }
+
+    insert-hint {
+        color "#7fc8ff40"
     }
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
@@ -163,7 +190,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 2
@@ -199,10 +226,11 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
-        width 1
-        active-color "#ffc87f"
+        width 2
+        // active-color "#ffc87f"
+        active-color "#7fc8ff"
         inactive-color "#505050"
 
         // Color of the border around windows that request your attention.
@@ -212,42 +240,6 @@ layout {
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
-    // You can enable drop shadows for windows.
-    shadow {
-        // Uncomment the next line to enable shadows.
-        // on
-
-        // By default, the shadow draws only around its window, and not behind it.
-        // Uncomment this setting to make the shadow draw behind its window.
-        //
-        // Note that niri has no way of knowing about the CSD window corner
-        // radius. It has to assume that windows have square corners, leading to
-        // shadow artifacts inside the CSD rounded corners. This setting fixes
-        // those artifacts.
-        // 
-        // However, instead you may want to set prefer-no-csd and/or
-        // geometry-corner-radius. Then, niri will know the corner radius and
-        // draw the shadow correctly, without having to draw it behind the
-        // window. These will also remove client-side shadows if the window
-        // draws any.
-        // 
-        // draw-behind-window true
-
-        // You can change how shadows look. The values below are in logical
-        // pixels and match the CSS box-shadow properties.
-
-        // Softness controls the shadow blur radius.
-        softness 30
-
-        // Spread expands the shadow.
-        spread 5
-
-        // Offset moves the shadow relative to the window.
-        offset x=0 y=5
-
-        // You can also change the shadow color and opacity.
-        color "#0007"
-    }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -255,48 +247,48 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
+        // left 5
+        // right 5
+        // top 5
+        // bottom 5
     }
 }
 
-// Add lines like this to spawn processes at startup.
+// Spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+spawn-at-startup "archupdate" "-b"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "swaybg" "-i" "/home/rs/pix/wallpapers/moss.png" "-m" "fill"
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "dunst"
-spawn-at-startup "swaybg" "-i" "/home/rs/pix/wallpapers/bridge.jpg" "-m" "fill"
+spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/bin/kdeconnectd" //daemon for kde connect app?
 
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    DISPLAY ":0"
+    XDG_SESSION_TYPE "xcb"
+    MOZ_ENABLE_WAYLAND "1"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
 prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pix/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
     off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -356,11 +348,15 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+Alt+P hotkey-overlay-title="Configure displays" { spawn "niridisplay"; }
+    Mod+B hotkey-overlay-title="Toggle bar" { spawn "togglewaybar"; }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "run"; }
+    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    Mod+Control+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "run"; }
     Mod+Shift+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "window"; }
+    Mod+Escape hotkey-overlay-title="Show Power Menu" { spawn "waypow"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -369,19 +365,23 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    Mod+XF86AudioMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Mod+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.01+"; }
+    Mod+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.01-"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "volume" "up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "volume" "down"; }
-    XF86AudioMute        allow-when-locked=true { spawn "volume" "mute"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "volume" "up"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn "volume" "down"; }
+    // XF86AudioMute        allow-when-locked=true { spawn "volume" "mute"; }
+    // Mod+XF86AudioMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     XF86MonBrightnessUp { spawn "brightness" "up"; }
     XF86MonBrightnessDown { spawn "brightness" "down"; }
-    // Mod+XF86MonBrightnessDown { spawn "brightness" "setbrightness"; }
+    Mod+XF86MonBrightnessUp { spawn "brightness" "setbrightness"; }
+    Mod+XF86MonBrightnessDown { spawn "brightness" "setbrightness"; }
 
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
@@ -524,6 +524,8 @@ binds {
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
+    Mod+Shift+1 { spawn "~/./wsp.sh"; }
+
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
@@ -537,9 +539,13 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    // Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    // Mod+Period { expel-window-from-column; }
+    Mod+comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
+
+
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
@@ -573,8 +579,8 @@ binds {
     // Finer height adjustments when in column with other windows.
     // Mod+Shift+Minus { set-window-height "-5%"; }
     // Mod+Shift+Plus { set-window-height "+5%"; }
-    Mod+Alt+K { set-window-height "-5%"; }
-    Mod+Alt+J { set-window-height "+5%"; }
+    // Mod+Alt+K { set-window-height "-5%"; }
+    // Mod+Alt+J { set-window-height "+5%"; }
 
 
     // Move the focused window between the floating and the tiling layout.
@@ -594,6 +600,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+
+
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -606,7 +614,7 @@ binds {
     //
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Alt+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Ctrl+Shift+Q { quit; }
