@@ -1,0 +1,195 @@
+/* fragile file path */
+@define-color bg-dark #222222;
+@define-color fg-white #ffffff;
+@define-color gray-light #b3b3b3;
+@define-color gray-dark #64727D;
+@define-color blue-dark #005577;
+@define-color dragon-blue #8ba4b0;
+@define-color dragon-black2 #1D1C19;
+@define-color red-critical #f53c3c;
+@define-color red-urgent #eb4d4b;
+@define-color green-charging #26A65B;
+@define-color green-light #2ecc71;
+@define-color yellow-pulse #f1c40f;
+@define-color purple-memory #9b59b6;
+@define-color blue-network #2980b9;
+@define-color orange-disk #964B00;
+@define-color teal-backlight #90b1b1;
+@define-color orange-temp #f0932b;
+@define-color green-media #66cc99;
+
+
+@define-color bordercolor #c5c9c5;
+@define-color bordercolor2 #222222;
+@define-color bg #222222;
+@define-color fg #64727d;
+@define-color highlight #ffffff;
+@define-color activetag-fg #8ba4b0;
+@define-color alert #ff0000;
+@define-color disabled #A5A5A5;
+
+* {
+  min-height: 0;
+  font-family: "Hack Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+window#waybar {
+  color: @fg;
+  background: @bg;
+  transition-property: background-color;
+  transition-duration: 0.0s;
+  border: 0rem solid @bordercolor2;
+  border-radius: 0.0rem;
+}
+
+button {
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0rem;
+  padding: 0rem 0.2rem;
+  margin: 0.2rem 0rem;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+}
+
+#workspaces button {
+  color: @fg;
+}
+
+#workspaces button.urgent {
+  color: @alert;
+}
+#workspaces button.empty {
+  color: @bordercolor;
+}
+
+#workspaces button.active {
+  color: @highlight;
+}
+
+/*River Tags/Workspaces*/
+#tags {
+  background-color: transparent;
+  border-radius: 0rem;
+  padding: 0rem 0.2rem;
+}
+
+#tags button {
+  color: #444444;
+  background: @bg;
+
+  /*If you need round border icons*/
+  border-radius: 0rem;
+  padding: 0rem 0.4rem;
+  margin: 0.4rem 0rem;
+}
+
+#tags button.occupied {
+  color: #c5c9c5;
+}
+
+#tags button.focused {
+  color: #222222;
+  background: @activetag-fg;
+}
+
+#tags button.urgent {
+  color: @alert;
+}
+
+#clock,
+#cava,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#language,
+#backlight,
+#backlight-slider,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#taskbar,
+#tray,
+#tray menu,
+#tray > .needs-attention,
+#tray > .passive,
+#tray > .active,
+#mode,
+#scratchpad,
+#custom-notification,
+#custom-wifi,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#custom-separator,
+#idle_inhibitor,
+#window,
+#mpd {
+  padding: 0rem 0.4rem;
+  margin: 0rem 0.4rem;
+  color: @bordercolor;
+}
+
+#custom-notification,
+#custom-wifi,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#idle_inhibitor {
+  color: @bg;
+}
+
+#clock,
+#custom-group {
+  color: @bg;
+  background-color: @bordercolor;
+  margin: 0.4rem;
+  padding: 0rem 0.4rem;
+  border-radius: 0.0rem;
+}
+
+#custom-separator {
+  padding: 0rem;
+  margin: 0rem;
+  color: @disabled;
+}
+
+#tray {
+  /*background-color: @bordercolor;*/
+  border: 0.1rem solid @bordercolor;
+  margin: 0.4rem;
+  padding: 0rem 1.25rem;
+  border-radius: 0rem;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#wireplumber.muted {
+  color: @alert;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @activegreen;
+}
+
+label:focus {
+  background-color: @bg;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @alert;
+  color: @fg;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
