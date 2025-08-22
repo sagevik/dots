@@ -138,7 +138,8 @@ button:hover {
 }
 #battery.charging, #battery.plugged {
     color: @fg-white;
-    background-color: @green-charging;
+    /* background-color: @green-charging; */
+    background-color: @bg-dark;
 }
 #custom-pacman:hover {
     background-color: @niri-blue;

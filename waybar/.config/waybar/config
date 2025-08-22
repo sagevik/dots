@@ -26,8 +26,8 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": "{icon} {capacity}%",
-        "format-plugged": "{icon} {capacity}%",
+        "format-charging": "󱐋 {icon} {capacity}%",
+        "format-plugged": "󱐋 {icon} {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": ["", "", "", "", ""]
     },
