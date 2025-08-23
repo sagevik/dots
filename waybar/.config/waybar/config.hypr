@@ -1,16 +1,17 @@
 {
     "position": "top",
-    "height": 20,
+    "height": 24,
     "modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
     // "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
-    "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "battery", "clock" ,"tray"],
+    "modules-right": ["tray", "custom/pacman", "pulseaudio", "battery", "clock"],
     "tray": {
         "spacing": 5
     },
     "clock": {
     	"interval": 1,
     	"timezone": "Europe/Oslo",
-    	"format": " {:%Y-%m-%d   %H:%M}",
+    	"format": " {:%Y-%m-%d %H:%M}",
+    	//"format": " {:%Y-%m-%d   %H:%M}",
     	"tooltip": false,
     },
     "cpu": {
@@ -50,9 +51,6 @@
     },
     "custom/spacer": {
         "format": "|",
-    },
-    "custom/arch": {
-        "format": " :",
     },
     "custom/pacman": {
         "format": "  {text} ",

@@ -1,10 +1,10 @@
 /* Define colors */
 @define-color bg-dark #222222;
-@define-color fg-white #b3b3b3;
-/* @define-color fg-white #ffffff; */
+@define-color fg-white #ffffff;
 @define-color gray-light #b3b3b3;
 @define-color gray-dark #64727D;
 @define-color blue-dark #005577;
+@define-color dragon-blue #8ba4b0;
 @define-color dragon-blue #8ba4b0;
 @define-color dragon-black2 #1D1C19;
 @define-color red-critical #f53c3c;
@@ -18,7 +18,7 @@
 @define-color teal-backlight #90b1b1;
 @define-color orange-temp #f0932b;
 @define-color green-media #66cc99;
-@define-color niri-blue #7fc8ff;
+/* @define-color niri-blue #7fc8ff; */
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -58,30 +58,31 @@ button:hover {
 }
 
 #pulseaudio:hover {
-    background-color: @niri-blue;
+    background-color: @dragon-blue;
     color: @bg-dark
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 2px 0px 0px 5px;
     background-color: transparent;
     color: @gray-light;
 }
 
 #workspaces button:hover {
     color: @fg-white;
-    box-shadow: inset 0 -3px @niri-blue;
+    /* box-shadow: inset 0 -3px @niri-blue; */
 }
 
 #workspaces button.active {
-    color: @bg-dark;
-    background: @niri-blue;
+    color: @fg-white;
+    background: @bg-dark;
+    /* background: @niri-blue; */
     /* box-shadow: inset 0 -3px @niri-blue; */
 }
 
 #workspaces button.focused {
     background-color: @bg-dark;
-    box-shadow: inset 0 -3px @niri-blue;
+    box-shadow: inset 0 -3px @dragon-blue;
 }
 
 #workspaces button.urgent {
@@ -111,7 +112,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #window,
@@ -133,27 +134,27 @@ button:hover {
 
 #battery {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #battery:hover {
-    background-color: @niri-blue;
+    background-color: @dragon-blue;
     color: @bg-dark;
 }
 #battery.charging, #battery.plugged {
-    color: @fg-white;
+    color: @gray-light;
     background-color: @bg-dark;
 }
 #custom-arch{
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 #custom-pacman{
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 #custom-pacman:hover {
-    background-color: @niri-blue;
+    background-color: @dragon-blue;
     color: @bg-dark;
 }
 #custom-spacer {
@@ -169,7 +170,7 @@ button:hover {
 
 #battery.critical:not(.charging) {
     background-color: @red-critical;
-    color: @fg-white;
+    color: @gray-light;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -183,12 +184,12 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: @red-critical;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #power-profiles-daemon.balanced {
     background-color: @blue-network;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #power-profiles-daemon.power-saver {
@@ -202,7 +203,7 @@ label:focus {
 
 #cpu {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #memory {
@@ -231,17 +232,17 @@ label:focus {
 
 #pulseaudio {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #pulseaudio.muted {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #wireplumber {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #wireplumber.muted {
@@ -250,7 +251,7 @@ label:focus {
 
 #custom-media {
     background-color: @bg-dark;
-    color: @fg-white;
+    color: @gray-light;
     min-width: 100px;
 }
 
@@ -347,7 +348,7 @@ label:focus {
 
 #privacy-item {
     padding: 0 5px;
-    color: @fg-white;
+    color: @gray-light;
 }
 
 #privacy-item.screenshare {
