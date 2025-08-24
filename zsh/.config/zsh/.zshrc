@@ -44,13 +44,18 @@ alias gst="git status"
 
 # Zathura pdf
 function pdf() {
-    if [ -z "$1" ]; then
+    pdfdoc="$(fd . -e pdf | fzf)"
+    if [ -z "$pdfdoc" ]; then
         return
+    elif [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+       zathura --fork "$pdfdoc" && exit 
     else
-        devour zathura "$1"
+        devour zathura "$pdfdoc"
     fi
 }
-alias fpdf='pdf "$(fd . -e pdf | fzf)"'
+alias fpdf='pdf'
+# alias fpdf='pdf "$(fd . -e pdf | fzf)"'
+# alias fpdf='zathura --fork "$(fd . -e pdf | fzf)" && exit'
 
 # tmux
 bindkey -s '^ ' "tmuxsessionizer\n"
