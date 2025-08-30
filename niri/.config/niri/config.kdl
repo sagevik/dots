@@ -126,7 +126,7 @@ hotkey-overlay {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 5
+    gaps 2
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left or right edge of the screen.
@@ -259,6 +259,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+spawn-at-startup "xrdb" "-merge" "/home/rs/.Xresourses"
 spawn-at-startup "archupdate" "-b"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "swaybg" "-i" "/home/rs/pix/wallpapers/moss.png" "-m" "fill"
