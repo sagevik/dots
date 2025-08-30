@@ -72,7 +72,9 @@ button:hover {
 
 #workspaces button.active {
     color: @fg-white;
-    background: @niri-blue;
+    background: @bg-dark;
+    /* background: @niri-blue; */
+    box-shadow: inset 0 -3px @niri-blue;
 }
 
 #workspaces button.focused {
