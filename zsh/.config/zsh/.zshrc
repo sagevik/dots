@@ -2,6 +2,7 @@
 [[ -f ~/.config/zsh/colors.zsh ]] && source ~/.config/zsh/colors.zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="$PATH:/$HOME/scripts"
 
 # Basic auto/tab complete:
 autoload -Uz compinit
