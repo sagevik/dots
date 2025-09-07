@@ -272,6 +272,9 @@ label:focus {
 }
 
 #tray {
+    padding: 0 0px;
+    margin: 0 0px;
+    margin-left: -5px;
     background-color: @bg-dark;
 }
 

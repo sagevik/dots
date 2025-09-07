@@ -2,10 +2,12 @@
     "position": "top",
     "height": 26,
     "modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
-    // "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "cpu", "battery", "memory", "clock" ,"tray"],
-    "modules-right": ["tray", "custom/pacman", "pulseaudio", "custom/brightness",  "battery", "clock"],
+    "modules-right": ["custom/arch", "custom/pacman", "pulseaudio", "battery", "cpu", "memory", "clock" ,"tray"],
+    //"modules-right": ["tray", "custom/pacman", "pulseaudio", "custom/brightness",  "battery", "clock"],
     "tray": {
-        "spacing": 5
+        "spacing": 0,
+        "icon-size": 16,
+        "show-passive-items": true
     },
     "clock": {
     	"interval": 1,
