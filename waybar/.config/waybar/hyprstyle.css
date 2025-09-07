@@ -5,7 +5,6 @@
 @define-color gray-dark #64727D;
 @define-color blue-dark #005577;
 @define-color dragon-blue #8ba4b0;
-@define-color dragon-blue #8ba4b0;
 @define-color dragon-black2 #1D1C19;
 @define-color red-critical #f53c3c;
 @define-color red-urgent #eb4d4b;
@@ -18,19 +17,23 @@
 @define-color teal-backlight #90b1b1;
 @define-color orange-temp #f0932b;
 @define-color green-media #66cc99;
-@define-color niri-blue #7fc8ff;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Hack, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
 }
 
-window#waybar {
+#waybar {
     background-color: @bg-dark;
     color: @gray-light;
-    transition-property: background-color;
-    transition-duration: .1s;
+    min-height: 20px;
+    padding: 0 2px;
 }
 
 window#waybar.hidden {
@@ -43,46 +46,45 @@ window#waybar.termite {
 
 window#waybar.chromium {
     background-color: #000000;
-    border: none;
 }
 
 button {
-    box-shadow: inset 0 -3px transparent;
+    box-shadow: inset 0 -2px transparent;
     border: none;
     border-radius: 0;
-    transition-property: background-color;
-    transition-duration: .01s;
 }
 
 button:hover {
 }
 
 #pulseaudio:hover {
-    background-color: @niri-blue;
-    color: @bg-dark
+    background-color: #7fc8ff;
+    color: @bg-dark;
 }
 
 #workspaces button {
-    padding: 2px 0px 0px 5px;
+    padding: 0 0 0 4px;
     background-color: transparent;
-    color: @gray-light;
+    color: @gray-dark;
+    min-height: 18px;
 }
 
 #workspaces button:hover {
     color: @fg-white;
-    /* box-shadow: inset 0 -3px @niri-blue; */
 }
 
 #workspaces button.active {
     color: @fg-white;
     background: @bg-dark;
-    /* background: @niri-blue; */
-    /* box-shadow: inset 0 -3px @niri-blue; */
 }
 
 #workspaces button.focused {
     background-color: @bg-dark;
-    box-shadow: inset 0 -3px @niri-blue;
+}
+
+#workspaces button.occupied {
+    background-color: @yellow-pulse;
+    color: @fg-white;
 }
 
 #workspaces button.urgent {
@@ -91,7 +93,8 @@ button:hover {
 
 #mode {
     background-color: @gray-dark;
-    box-shadow: inset 0 -3px @fg-white;
+    box-shadow: inset 0 -2px @fg-white;
+    padding: 0 4px;
 }
 
 #clock,
@@ -110,14 +113,17 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
+#mpd,
+#custom-pacman,
+#custom-brightness {
+    padding: 0 4px;
     color: @gray-light;
+    font-size: 12px;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 2px;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -130,6 +136,7 @@ button:hover {
 
 #clock {
     background-color: @bg-dark;
+    color: @gray-light;
 }
 
 #battery {
@@ -138,29 +145,20 @@ button:hover {
 }
 
 #battery:hover {
-    background-color: @niri-blue;
+    background-color: #7fc8ff;
     color: @bg-dark;
 }
+
 #battery.charging, #battery.plugged {
     color: @gray-light;
     background-color: @bg-dark;
 }
-#custom-arch{
-    background-color: @bg-dark;
-    color: @gray-light;
-}
-#custom-pacman{
-    background-color: @bg-dark;
-    color: @gray-light;
-}
+
 #custom-pacman:hover {
-    background-color: @niri-blue;
+    background-color: #7fc8ff;
     color: @bg-dark;
 }
-#custom-spacer {
-    color: @gray-light;
-    padding-right: 5px;
-}
+
 @keyframes blink {
     to {
         background-color: @fg-white;
@@ -170,7 +168,7 @@ button:hover {
 
 #battery.critical:not(.charging) {
     background-color: @red-critical;
-    color: @gray-light;
+    color: @fg-white;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -179,12 +177,12 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 #power-profiles-daemon.performance {
     background-color: @red-critical;
-    color: @gray-light;
+    color: @fg-white;
 }
 
 #power-profiles-daemon.balanced {
@@ -208,26 +206,32 @@ label:focus {
 
 #memory {
     background-color: @bg-dark;
+    color: @gray-light;
 }
 
 #disk {
     background-color: @bg-dark;
+    color: @gray-light;
 }
 
 #backlight {
     background-color: @bg-dark;
+    color: @gray-light;
 }
 
 #network {
     background-color: @bg-dark;
+    color: @gray-light;
 }
 
 #network:hover {
     background-color: @blue-dark;
+    color: @gray-light;
 }
 
 #network.disconnected {
     background-color: @red-critical;
+    color: @gray-light;
 }
 
 #pulseaudio {
@@ -247,12 +251,13 @@ label:focus {
 
 #wireplumber.muted {
     background-color: @red-critical;
+    color: @gray-light;
 }
 
 #custom-media {
     background-color: @bg-dark;
     color: @gray-light;
-    min-width: 100px;
+    min-width: 80px;
 }
 
 #custom-media.custom-spotify {
@@ -272,9 +277,6 @@ label:focus {
 }
 
 #tray {
-    padding: 0 0px;
-    margin: 0 0px;
-    margin-left: -5px;
     background-color: @bg-dark;
 }
 
@@ -316,21 +318,21 @@ label:focus {
 #language {
     background: #00b093;
     color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
+    padding: 0 4px;
+    margin: 0 2px;
+    min-width: 14px;
 }
 
 #keyboard-state {
     background: #97e1ad;
     color: #000000;
     padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
+    margin: 0 2px;
+    min-width: 14px;
 }
 
 #keyboard-state > label {
-    padding: 0 5px;
+    padding: 0 4px;
 }
 
 #keyboard-state > label.locked {
@@ -350,7 +352,7 @@ label:focus {
 }
 
 #privacy-item {
-    padding: 0 5px;
+    padding: 0 4px;
     color: @gray-light;
 }
 
@@ -364,4 +366,14 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+#custom-spacer {
+    padding: 0 4px;
+    color: @gray-light;
+}
+
+#custom-brightness {
+    background-color: @bg-dark;
+    color: @gray-light;
 }
