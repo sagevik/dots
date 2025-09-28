@@ -1,6 +1,6 @@
 ! dwm specific settings for kanagawa-blue
 dwm.normfgcolor: #c5c9c5
-dwm.selfgcolor:  #c5c9c5
+dwm.selfgcolor:  #8ba4b0
 
 dwm.normbgcolor: #1d1c19
 dwm.normbgcolor2: #1d1c19

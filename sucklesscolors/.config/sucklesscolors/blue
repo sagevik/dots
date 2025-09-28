@@ -1,0 +1,35 @@
+! dwm specific settings for blue
+
+! dwm.normfgcolor is foreground color of unselected in dmenu
+dwm.normfgcolor: #c5c9c5
+
+!dwm.selfgcolor is color of selected tag
+dwm.selfgcolor:  #c5c9c5
+
+! dwm.normbgcolor is color of bar
+dwm.normbgcolor: #000000
+
+! dwm.normbgcolor2 is selected tag background
+dwm.normbgcolor2: #000000
+
+! dwm.normbordercolor is border color of unfocused window
+dwm.normbordercolor: #1d1c19
+
+! dwm.selbordercolor is border color of focused window
+dwm.selbordercolor: #6e93b1
+
+! dwm.selbgcolor is  #395454
+dwm.selbgcolor:  #6e93b1
+
+! dmenu.foreground is foreground color of dmenu in scripts
+dmenu.foreground: #c5c9c5
+
+! dmenu.background is background color of dmenu in scripts
+dmenu.background: #000000
+
+! dmenu.selforeground is selected foreground color of dmenu in scripts
+dmenu.selforeground: #000000
+
+! dmenu.selbackground is selected background color of dmenu in scripts
+dmenu.selbackground: #6e93b1
+
