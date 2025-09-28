@@ -3,6 +3,7 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/$HOME/scripts"
+# export PATH="$PATH:/usr/local/go/bin"
 
 # Basic auto/tab complete:
 autoload -Uz compinit
