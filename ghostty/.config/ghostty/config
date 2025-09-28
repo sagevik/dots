@@ -1,7 +1,9 @@
+confirm-close-surface = false
+
 font-family = Hack
 font-size = 12
 # window-padding-x = 2
-theme = Kanagawa Dragon
+# theme = Kanagawa Dragon
 
 shell-integration = zsh
 
@@ -11,14 +13,14 @@ keybind = super+alt+k=scroll_page_lines:-2
 keybind = super+alt+j=scroll_page_lines:2
 
 window-decoration = none
-background-opacity = 0.98
+background-opacity = 1.0
 
 cursor-invert-fg-bg = false
 cursor-opacity = 0.8
 
 # Colors
 foreground=gray90
-background=#181616
+background=#000000
 cursor-color=#c5c9c5
 # cursor-text=#c5c9c5
 
