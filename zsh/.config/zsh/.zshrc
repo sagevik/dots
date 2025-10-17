@@ -5,6 +5,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:/$HOME/scripts"
 # export PATH="$PATH:/usr/local/go/bin"
 
+# bob managed nvim
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
 # Basic auto/tab complete:
 autoload -Uz compinit
 setopt PROMPT_SUBST
