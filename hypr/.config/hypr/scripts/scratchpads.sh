@@ -11,11 +11,9 @@
 # hyprctl dispatch movetoworkspacesilent special:scratchA
 
 declare -A applications
-applications["Bitwarden"]="bitwarden"
-applications["nvim_scratch"]="foot --title='nvim_scratch' -e nvim"
-# applications["nvim_scratch"]="ghostty --title='nvim_scratch' -e nvim"
+applications["Bitwarden"]="bitwarden-desktop"
+applications["nvim_scratch"]="foot --title='nvim_scratch'"
 applications["dd_foot"]="foot --title='dd_foot'"
-# applications["dd_ghosty"]="ghostty --title='dd_ghosty'"
 applications["Volume Control"]="pavucontrol"
 
 selected_application="$1"
