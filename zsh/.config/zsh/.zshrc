@@ -63,9 +63,9 @@ alias fpdf='pdf'
 # alias fpdf='zathura --fork "$(fd . -e pdf | fzf)" && exit'
 
 # tmux
-bindkey -s '^ ' "tmuxsessionizer\n"
+bindkey -s '^ ' "tmx\n"
 # bindkey -s '^@' "tmuxsessionizer\n"
-alias t=tmuxsessionizer
+alias t=tmx
 alias ta="tmux attach"
 alias tmls="tmux ls"
 alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
