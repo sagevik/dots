@@ -55,19 +55,18 @@
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "kitty -e 'archupdate'; pkill -SIGRTMIN+8 waybar", // update system
-        "signal": 8
+        "on-click": "ghostty -e 'archupdate', // update system
     },
-    "river/tags": {
-        "num-tags": 9,
-            "set-tags": [
-                  2147483649,
-                  2147483650,
-                  2147483652,
-                  2147483656,
-                  2147483664
-            ]
-    },
+    //"river/tags": {
+    //    "num-tags": 9,
+    //        "set-tags": [
+    //              2147483649,
+    //              2147483650,
+    //              2147483652,
+    //              2147483656,
+    //              2147483664
+    //        ]
+    //},
     "river/mode": {
         "format": "mode: {}"
     },

@@ -1,26 +1,11 @@
-@define-color bg-dark #222222;
-@define-color fg-white #ffffff;
 @define-color gray-light #b3b3b3;
-@define-color gray-dark #64727D;
 @define-color blue-dark #005577;
-@define-color dragon-blue #8ba4b0;
-@define-color dragon-black2 #1D1C19;
 @define-color red-critical #f53c3c;
 @define-color red-urgent #eb4d4b;
-@define-color green-charging #26A65B;
-@define-color green-light #2ecc71;
-@define-color yellow-pulse #f1c40f;
-@define-color purple-memory #9b59b6;
-@define-color blue-network #2980b9;
-@define-color orange-disk #964B00;
-@define-color teal-backlight #90b1b1;
-@define-color orange-temp #f0932b;
-@define-color green-media #66cc99;
 
-@define-color bg    #222222;
+@define-color bg    #000000;
 @define-color fg    #b3b3b3;
 @define-color fgd   #64727d;
-@define-color blk   #32344a;
 @define-color red   #f7768e;
 @define-color grn   #9ece6a;
 @define-color ylw   #e0af68;
@@ -28,7 +13,6 @@
 @define-color mag   #ad8ee6;
 @define-color cyn   #0db9d7;
 @define-color brblk #444b6a;
-@define-color wht   #ffffff;
 
 * {
     font-family: Hack, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -75,6 +59,7 @@ button:hover {
     min-height: 0;
 }
 #workspaces button.active {
+    background-color: @bg;
     color: @fg;
 }
 #workspaces button.empty {
@@ -82,6 +67,11 @@ button:hover {
 }
 #workspaces button.empty.active {
     color: @fg;
+}
+#workspaces button:hover {
+    background-color: @bg;
+    color: @fg;
+    transition: color 0.2s ease;  /* Optional: Smooth transition effect */
 }
 
 #clock,
@@ -146,24 +136,28 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: @fg-white;
-        color: #000000;
+        background-color: @bg;
+        color: @red;
     }
-}
-
-#battery.charging {
-    background-color: @bg;
-    color: @fg;
 }
 
 #battery.critical:not(.charging) {
     background-color: @red-critical;
-    color: @fg-white;
+    color: @fg;
     animation-name: blink;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#battery.charging {
+    color: @fg;
+    /* animation-name: blink; */
+    /* animation-duration: 0.2s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
 
 label:focus {
@@ -203,7 +197,7 @@ label:focus {
 }
 
 #tray {
-    background-color: @bg-dark;
+    background-color: @bg;
 }
 
 #tray > .passive {

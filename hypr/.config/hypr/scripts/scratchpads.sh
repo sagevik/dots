@@ -11,9 +11,11 @@
 # hyprctl dispatch movetoworkspacesilent special:scratchA
 
 declare -A applications
-applications["Bitwarden"]="bitwarden-desktop"
-applications["nvim_scratch"]="ghostty --title='nvim_scratch' -e nvim"
-applications["dd_ghosty"]="ghostty --title='dd_ghosty'"
+applications["Bitwarden"]="bitwarden"
+applications["nvim_scratch"]="foot --title='nvim_scratch' -e nvim"
+# applications["nvim_scratch"]="ghostty --title='nvim_scratch' -e nvim"
+applications["dd_foot"]="foot --title='dd_foot'"
+# applications["dd_ghosty"]="ghostty --title='dd_ghosty'"
 applications["Volume Control"]="pavucontrol"
 
 selected_application="$1"
@@ -52,9 +54,11 @@ elif [ "$current_workspace" = "special:scratchA" ]; then
     # Window is on special:scratchA, move to active workspace
     hyprctl dispatch focuswindow address:0x"$window_id"
     hyprctl dispatch movetoworkspacesilent $active_workspace
+    hyprctl dispatch bringactivetotop
 else
     # Window is on another workspace, move to active workspace
     hyprctl dispatch focuswindow address:0x"$window_id"
     hyprctl dispatch movetoworkspacesilent $active_workspace
     hyprctl dispatch focuswindow address:0x"$window_id"
+    hyprctl dispatch bringactivetotop
 fi

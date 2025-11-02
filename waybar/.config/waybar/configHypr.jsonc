@@ -5,22 +5,25 @@
     "height": 20,
     "spacing": 4,
     "modules-left": [
-        "niri/workspaces",
+        "hyprland/workspaces",
         "custom/sep",
-        "niri/window",
+        "hyprland/window",
     ],
     "modules-center": [
     ],
     "modules-right": [
         "custom/pacman",
+        "custom/layout",
+        "custom/sep",
         "pulseaudio",
         "custom/sep",
         "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
+        // "custom/sep",
+        // "memory",
+        // "custom/sep",
         // "disk",
-        "network",
+        // "custom/sep",
+        // "network",
         "custom/sep",
         "battery",
         "custom/sep",
@@ -50,7 +53,6 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%Y-%m-%d %H:%M}",
         "format-alt": "{:%Y-%m-%d %H:%M}",
-        // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": " {usage}%",
@@ -72,9 +74,11 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {icon} {capacity}%",
+        "format-plugged": " {icon} {capacity}%",
         "format-alt": "Bat: {capacity}%",
         "format-time": "{H}:{M}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     "custom/sep": {
         "format": "|",
@@ -92,11 +96,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -114,8 +118,21 @@
         "interval": 3600,
         "exec": "count=$(checkupdates 2>/dev/null | wc -l || echo 0); [ $count -gt 0 ] && echo '  ' || echo ''",
         "exec-if": "which checkupdates",
-        "on-click": "ghostty --title='PackageUpdater' -e 'archupdate'",
+        "on-click": "foot --title='PackageUpdater' -e 'archupdate'",
         "tooltip": true,
         "tooltip-format": "{} updates available"
-    }
+    },
+    "custom/layout": {
+        "format": "{}",
+        "exec": "layout=$(hyprctl getoption general:layout | awk '/str:/ {print $2}'); [ $layout = dwindle ] && echo 'D' || echo 'M'",
+        "signal": 8,
+        "tooltip": false
+    },
+    // "custom/windowcount": {
+    //     "format": "{}",
+    //     "exec": "count=$(hyprctl activeworkspace | grep 'windows:' | awk '{print $2}'); echo [$count]",
+    //     // "interval": 1,
+    //     "signal": 9,
+    //     "tooltip": false
+    // }
 }
