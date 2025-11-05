@@ -70,15 +70,6 @@ alias ta="tmux attach"
 alias tmls="tmux ls"
 alias tmcheat="nvim -O $HOME/.config/tmux/tmux-cht-languages $HOME/.config/tmux/tmux-cht-command"
 
-# Edit configs
-alias zshrc="nvim ~/.config/zsh/.zshrc"
-alias xinitrc="nvim ~/.xinitrc"
-alias vimrc="nvim ~/.config/vim/.vimrc"
-alias nviminit="nvim ~/.config/nvim/init.lua"
-alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
-alias riverconf="nvim ~/.config/river/init"
-alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
-
 # Jotta
 alias jc="jotta-cli"
 alias jcs="jotta-cli status"
@@ -86,6 +77,63 @@ alias jco="jotta-cli observe"
 alias jcls="jotta-cli ls Backup/$HOSTNAME"
 
 # ----------> Functions <---------- #
+function pwdc() {
+    echo -n "$(pwd)" | wl-copy
+    # pwd | xclip -selection clipboard
+    notify-send "pwd" "path copid to clipboard"
+}
+
+function pdf() {
+    if [ -z "$1" ]; then
+        pdfdoc="$(fd . '/home/rs/' -e pdf | fzf)"
+    else
+        pdfdoc="$(fd . -e pdf | fzf)"
+    fi
+    if [ -z "$pdfdoc" ]; then
+        return
+    elif [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+       # zathura "$pdfdoc" & disown
+       zathura --fork "$pdfdoc" && exit
+    else
+        devour zathura "$pdfdoc"
+    fi
+}
+
+function opendocument() {
+    local file="$1"
+
+    if [ -z "$file" ]; then
+        echo "No file selected."
+        return 1
+    fi
+
+    if [ ! -f "$file" ]; then
+        echo "Error: File '$file' does not exist."
+        return 1
+    fi
+
+    local text_extensions="txt md sh py js ts json yaml yml toml c cpp java go rs vim zsh"
+    local ext="${file##*.}"
+    ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+
+    if [ "$ext" = "$file" ] || ! echo "$text_extensions" | grep -qw "$ext"; then
+        if file --mime-type "$file" | grep -q 'text/'; then
+            (foot -e nvim "$file" &)
+        else
+            (xdg-open "$file" &)
+        fi
+    else
+        (foot -e nvim "$file" &)
+    fi
+
+    disown
+    exit
+}
+
+
+# Alias to search files with fd and fzf, then pass to opendocument
+alias op='opendocument "$(fd . --type f | fzf --prompt="Open file > ")"'
+
 
 # ----------> Yazi <---------- #
 
@@ -215,7 +263,7 @@ fh() {
     fi
 
     clear
-    cmd=$(history 1 | fzf --reverse --height 100% --border --tac +s --prompt="$fzf_prompt")
+    cmd=$(history 1 | fzf --height 100% --border --tac +s --prompt="$fzf_prompt")
     cmd=$(echo "$cmd" | sed 's/ *[0-9]\+\*\{0,1\} *//')
 
     [[ -z "$cmd" ]] && return 0
@@ -227,22 +275,25 @@ fh() {
         # Execute the command
         eval "$cmd"
     else
-        # echo -n "$cmd" | wl-copy  # For Wayland
-        echo -n "$cmd" | xclip -selection clipboard  # Uncomment for X11
-        echo "Command copied to clipboard!"
+        if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+          echo -n "$cmd" | wl-copy
+        else
+          echo -n "$cmd" | xclip -selection clipboard
+        fi
+        notify-send "Command" "$cmd\ncopied to clipboard!"
     fi
 }
 
 # alias for execute from history
 alias fhe="fh e"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#757575"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#606065"
 # Load zsh plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf
-export FZF_DEFAULT_OPTS="--no-preview"
+export FZF_DEFAULT_OPTS="--no-preview --bind 'ctrl-a:select-all,ctrl-d:deselect-all'"
 # export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always {}'"
 source <(fzf --zsh)
 
