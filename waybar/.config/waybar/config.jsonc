@@ -16,16 +16,17 @@
         "pulseaudio",
         "custom/sep",
         "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
+        // "custom/sep",
+        // "memory",
+        // "custom/sep",
         // "disk",
-        "network",
+        // "network",
         "custom/sep",
         "battery",
         "custom/sep",
         "clock",
         "tray",
+        "custom/powerprofile",
     ],
     "tray": {
         "icon-size": 14,
@@ -116,6 +117,16 @@
         "exec-if": "which checkupdates",
         "on-click": "ghostty --title='PackageUpdater' -e 'archupdate'",
         "tooltip": true,
-        "tooltip-format": "{} updates available"
+        "tooltip-format": "{} updates available",
+        "signal": 8
+    },
+    "custom/powerprofile": {
+        "format": "{text}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/scripts/powerprofile.sh",
+        // "exec": "profile=$($HOME/.config/waybar/scripts/powerprofile.sh) && echo $profile",
+        "tooltip": true,
+        "signal": 8  // Enables signal-based updates (use pkill -RTMIN+8 waybar to trigger)
+        // Optional: Add "interval": 30 for polling every 30s if you remove D-Bus monitoring
     }
 }
