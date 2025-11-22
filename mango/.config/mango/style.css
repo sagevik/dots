@@ -243,3 +243,8 @@ label:focus {
     color: @fg;
 }
 
+#custom-sep {
+    padding: 0 4px;
+    color: @fg;
+}
+
