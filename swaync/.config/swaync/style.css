@@ -34,7 +34,7 @@ window#swaync-control-center {
 /* ========= NOTIFICATIONS ========= */
 .notification {
     background-color: #000000;
-    border: 1px solid #333333;
+    border: 1px solid #f3b37c;
     border-radius: 0px;
     padding: 10px;
     margin: 6px 8px;
