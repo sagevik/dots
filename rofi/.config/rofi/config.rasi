@@ -1,2 +1,7 @@
 @import "share"
 @theme "theme"
+
+configuration {
+    modi: "combi";
+    combi-modi: "window,drun,run";
+}
