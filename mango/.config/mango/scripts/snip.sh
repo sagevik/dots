@@ -1,19 +1,27 @@
-choice=$1
+#! /bin/bash
 
 time=$(date +%Y-%m-%d_%H-%M-%S)
-file="/home/rs/pix/screenshots/screenshot_$time.png"
+file="$HOME/pix/screenshots/screenshot_$time.png"
+
+choice=$(printf "Selection\nScreen" | wmenu -f "Hack Bold 16" -i -l 2 -c -p "Screenshot type")
+echo "choice $choice"
+
 case $choice in
-  "selection")
+  "Selection")
     grim -l 0 -g "$(slurp)" $file
     notify-send "Screenshot" "$choice saved to $file"
+    wl-copy < "$file"
     ;;
-  "screen")
+  "Screen")
+    sleep 0.2
     grim -l 0 $file
     notify-send "Screenshot" "$choice saved to $file"
+    wl-copy < "$file"
     ;;
   "clipboard")
     grim -l 0 -g "$(slurp)" - | wl-copy
     notify-send "Screenshot" "put to $choice"
     ;;
-
+  *)
+    ;;
 esac

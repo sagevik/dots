@@ -5,7 +5,7 @@ font="Hack Bold 16"
 
 # Pass variables to dmenu
 run_dmenu() {
-  printf "Lock\nSuspend\nLogout\nReboot\nShutdown" | sort | wmenu -f "$font" -i -c -l 5 $WMENU_COLORS -p "Power Menu"
+  printf "Lock\nSuspend\nLogout\nReboot\nShutdown" | sort | wmenu -f "$font" -i -c -w 400 -l 5 $WMENU_COLORS -p "Power Menu"
 }
 
 chosen="$(run_dmenu)"

@@ -4,15 +4,15 @@ get_profile() {
     profile=$(powerprofilesctl get)
     case "$profile" in
         "balanced")
-            icon="⚖️ "
+            icon="⚖️"
             text="Balanced"
             ;;
         "performance")
-            icon="⚡ "
+            icon="󱐋"
             text="Performance"
             ;;
         "power-saver")
-            icon="♻️ "
+            icon="♻️"
             text="Power Saver"
             ;;
         *)

@@ -15,7 +15,7 @@
 @define-color brblk #444b6a;
 
 * {
-    font-family: Hack, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Hack, Jetbrains Mono Nerd, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     min-height: 0; /* Prevent modules from expanding */
@@ -176,6 +176,10 @@ label:focus {
     color: @fg;
 }
 
+#pulseaudio {
+    padding: 0px 4px 0px 4px;
+}
+
 #pulseaudio.muted {
     background-color: @bg;
     color: @fgd;
@@ -245,6 +249,12 @@ label:focus {
 
 #custom-sep {
     padding: 0 4px;
+    color: @fg;
+}
+
+#custom-powerprofile {
+    font-size: 16px;
+    padding: 0px 1px 0px 1px;
     color: @fg;
 }
 
