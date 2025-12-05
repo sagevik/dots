@@ -1,6 +1,6 @@
 #!/bin/sh
 
-option=$(printf "38 dual\n38 only\nIntegrated\nManual" | rofi -dmenu -i -l 5 -p "Select Display Setup")
+option=$(printf "38 dual\n38 only\nIntegrated\nManual" | wmenu -i -l 4 -p "Select Display Setup")
 
 case $option in
     "38 dual")
