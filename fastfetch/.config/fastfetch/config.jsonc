@@ -102,6 +102,12 @@
       "outputColor": "bright_",
     },
     {
+      "type": "disk",
+      "key": "  󰋊 Disk",
+      "keyColor": "blue",
+      "outputColor": "bright_",
+    },
+    {
       "type": "colors",
       "key": "   Colors",
       "keyColor": "green",
@@ -109,12 +115,6 @@
         "range": [1, 6],
       },
     },
-    //{
-    //  "type": "disk",
-    //  "key": "  󰋊 Disk",
-    //  "keyColor": "blue",
-    //  "outputColor": "bright_",
-    //},
     "break",
     {
       "type": "custom",
