@@ -2,7 +2,7 @@
 [[ -f ~/.config/zsh/colors.zsh ]] && source ~/.config/zsh/colors.zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$PATH:/$HOME/scripts"
+export PATH="$PATH:$HOME/scripts"
 # export PATH="$PATH:/usr/local/go/bin"
 
 # bob managed nvim
