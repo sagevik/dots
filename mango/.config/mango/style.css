@@ -13,6 +13,7 @@
 @define-color mag   #ad8ee6;
 @define-color cyn   #0db9d7;
 @define-color brblk #444b6a;
+@define-color orange #f3b37c;
 
 * {
     font-family: Hack, Jetbrains Mono Nerd, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -142,22 +143,18 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red-critical;
-    color: @fg;
+    background-color: @bg;
+    color: @orange;
     animation-name: blink;
-    animation-duration: 0.2s;
+    animation-duration: 0.25s;
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 #battery.charging {
+    background-color: @bg;
     color: @fg;
-    /* animation-name: blink; */
-    /* animation-duration: 0.2s; */
-    /* animation-timing-function: steps(12); */
-    /* animation-iteration-count: infinite; */
-    /* animation-direction: alternate; */
 }
 
 label:focus {
