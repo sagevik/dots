@@ -3,6 +3,7 @@
   "modules-left": [
     "ext/workspaces",
     "custom/sep",
+    // "dwl/window"
     "dwl/window#layout",
     "custom/sep",
     "dwl/window#title"
@@ -58,11 +59,14 @@
           "critical": 10
       },
       "format": "{icon} {capacity}%",
-      "format-charging": "󱐋 {icon} {capacity}%",
-      "format-plugged": " {icon} {capacity}%",
+      "format-charging": "󰂄 {capacity}%",
+      // "format-charging": "󱐋 {icon} {capacity}%",
+      "format-plugged": " {capacity}%",
+      // "format-plugged": " {icon} {capacity}%",
       "format-alt": "Bat: {capacity}%",
       "format-time": "{H}:{M}",
-      "format-icons": [" ", " ", " ", " ", " "]
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"]
+      // "format-icons": [" ", " ", " ", " ", " "]
   },
   // "network": {
   //   "format": "Online",
@@ -103,11 +107,22 @@
     "on-click": "activate",
     "sort-by-id": true
   },
+  // "dwl/window": {
+  //     "format": "{layout} | {title}",
+  //     "rewrite": { "T": "[]=", "M": "[]", "S":"SC", "CT":"=[]=" },
+  //     "max-length": 100
+  // },
   "dwl/window#layout": {
-    "format": "[{layout}]"
+      "format": "{layout}",
+      // "rewrite": { "T": "[]=", "M": "[]", "S":"SC", "CT":"=[]=" }
   },
   "dwl/window#title": {
-    "format": "{title}"
+      "format": "{title}",
+      "max-length": 100
+  },
+  "custom/spacer": {
+    "format": "",
+    "interval": 0
   },
   "custom/sep": {
     "format": "|",

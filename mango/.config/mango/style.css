@@ -75,6 +75,7 @@ button:hover {
     transition: color 0.2s ease;  /* Optional: Smooth transition effect */
 }
 
+
 #clock,
 #custom-sep,
 #battery,
@@ -94,11 +95,11 @@ button:hover {
 }
 
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 0px;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+    margin-right: 0px;
 }
 
 #clock {
