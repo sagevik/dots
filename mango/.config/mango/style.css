@@ -4,7 +4,9 @@
 @define-color red-urgent #eb4d4b;
 
 @define-color bg    #000000;
+@define-color wact  #f3b37c;
 @define-color fg    #b3b3b3;
+@define-color hid   #44424d;
 @define-color fgd   #64727d;
 @define-color red   #f7768e;
 @define-color grn   #9ece6a;
@@ -55,20 +57,19 @@ button:hover {
 
 #workspaces button {
     padding: 0 2px;
-    color: @fgd;
+    color: @fg;
     background: transparent;
     min-height: 0;
 }
 #workspaces button.active {
     background-color: @bg;
-    color: @fg;
+    color: @wact;
 }
-#workspaces button.empty {
-    color: @fgd;
+
+#workspaces button.hidden{
+    color: @hid;
 }
-#workspaces button.empty.active {
-    color: @fg;
-}
+
 #workspaces button:hover {
     background-color: @bg;
     color: @fg;

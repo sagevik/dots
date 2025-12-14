@@ -103,7 +103,7 @@
   },
   "ext/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": true,
+    "ignore-hidden": false,
     "on-click": "activate",
     "sort-by-id": true
   },
@@ -114,7 +114,7 @@
   // },
   "dwl/window#layout": {
       "format": "{layout}",
-      // "rewrite": { "T": "[]=", "M": "[]", "S":"SC", "CT":"=[]=" }
+      // "rewrite": { "T": "[]=", "M": "[M]", "S":"[]]", "CT":"|M|", "VG": "#" }
   },
   "dwl/window#title": {
       "format": "{title}",
