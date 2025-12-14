@@ -50,11 +50,6 @@ button:hover {
     background: none;
 }
 
-#pulseaudio:hover {
-    background-color: @fg;
-    color: @bg;
-}
-
 #workspaces button {
     padding: 0 2px;
     color: @fg;
@@ -90,8 +85,8 @@ button:hover {
 #custom-pacman,
 #window,
 #workspaces {
-    padding: 0 2px; /* Only horizontal padding */
-    margin: 0; /* No vertical margins */
+    padding: 0 0px; /* Only horizontal padding */
+    margin: 0 0px 0px 0px; /* No vertical margins */
     min-height: 0; /* Prevent expansion */
 }
 
@@ -105,6 +100,7 @@ button:hover {
 
 #clock {
     color: @fg;
+    margin: 0px 4px 0px 0px;
 }
 
 #battery {
@@ -112,28 +108,30 @@ button:hover {
 }
 
 #disk {
-    color: @ylw;
+    color: @fg;
 }
 
 #memory {
-    color: @mag;
+    color: @fg;
 }
 
 #cpu {
-    color: @grn;
+    color: @fg;
 }
 
 #network {
-    color: @blu;
+    color: @fg;
 }
 
 #custom-pacman{
     background-color: @bg;
     color: @fgd;
+    padding: 0px 4px 0px 4px;
+    margin: 0px 0px 0px 0px;
 }
 
 #custom-pacman:hover {
-    background-color: @fg;
+    background-color: @wact;
     color: @bg;
 }
 
@@ -170,11 +168,6 @@ label:focus {
 #network,
 #pulseaudio,
 #wireplumber,
-#tray {
-    background-color: @bg;
-    color: @fg;
-}
-
 #pulseaudio {
     padding: 0px 4px 0px 4px;
 }
@@ -195,12 +188,13 @@ label:focus {
 }
 
 #network:hover {
-    background-color: @blue-dark;
+    background-color: @wact;
     color: @fg;
 }
 
 #tray {
     background-color: @bg;
+    color: @fg;
 }
 
 #tray > .passive {
@@ -241,14 +235,11 @@ label:focus {
     background-color: #0069d4;
 }
 
-#custom-spacer {
-    padding: 0 4px;
-    color: @fg;
-}
-
 #custom-sep {
-    padding: 0 4px;
+    padding: 0 0px;
+    margin: 0px 2px;
     color: @fg;
+    background-color: @bg;
 }
 
 #custom-powerprofile {
@@ -257,3 +248,23 @@ label:focus {
     color: @fg;
 }
 
+#custom-powerprofile:hover {
+    font-size: 16px;
+    padding: 0px 1px 0px 1px;
+    color: @bg;
+    background-color: @wact;
+}
+
+#window.layout {
+    padding: 0px 2px 0px 2px;
+    margin: 0px 0px 0px -35px;
+    color: @fg;
+    /* background-color: @bg; */
+}
+
+#window.title {
+    padding: 0px 2px 0px 2px;
+    margin: 0px 0px 0px -8px;
+    color: @fg;
+    /* background-color: @bg; */
+}

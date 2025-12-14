@@ -12,7 +12,7 @@
   ],
   "modules-right": [
     "custom/pacman",
-    // "custom/sep",
+    "custom/sep",
     "custom/powerprofile",
     "custom/sep",
     "pulseaudio",
@@ -28,10 +28,12 @@
     "battery",
     "custom/sep",
     "clock",
-    // "custom/sep",
-    // "custom/powerprofile",
-    "tray",
+    "tray"
   ],
+  "tray": {
+    "icon-size": 12,
+    "spacing": 5
+  },
   "clock": {
       "interval": 60,
       "timezone": "Europe/Oslo",
@@ -60,13 +62,10 @@
       },
       "format": "{icon} {capacity}%",
       "format-charging": "󰂄 {capacity}%",
-      // "format-charging": "󱐋 {icon} {capacity}%",
       "format-plugged": " {capacity}%",
-      // "format-plugged": " {icon} {capacity}%",
       "format-alt": "Bat: {capacity}%",
       "format-time": "{H}:{M}",
       "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"]
-      // "format-icons": [" ", " ", " ", " ", " "]
   },
   // "network": {
   //   "format": "Online",
@@ -103,33 +102,26 @@
   },
   "ext/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": false,
+    "ignore-hidden": true,
     "on-click": "activate",
     "sort-by-id": true
   },
-  // "dwl/window": {
-  //     "format": "{layout} | {title}",
-  //     "rewrite": { "T": "[]=", "M": "[]", "S":"SC", "CT":"=[]=" },
-  //     "max-length": 100
-  // },
+  "dwl/window": {
+      "format": "[{layout}] {title}"
+  },
   "dwl/window#layout": {
-      "format": "{layout}",
-      // "rewrite": { "T": "[]=", "M": "[M]", "S":"[]]", "CT":"|M|", "VG": "#" }
+      "format": "[{layout}]"
   },
   "dwl/window#title": {
       "format": "{title}",
       "max-length": 100
   },
-  "custom/spacer": {
-    "format": "",
-    "interval": 0
-  },
   "custom/sep": {
-    "format": "|",
+    "format": " ",
     "interval": 0
   },
   "custom/pacman": {
-      "format": "{}|",
+      "format": "{}",
       "interval": 3600,
       "exec": "count=$(checkupdates 2>/dev/null | wc -l || echo 0); [ $count -gt 0 ] && echo ' ' || echo ''",
       "exec-if": "which checkupdates",
@@ -142,8 +134,9 @@
         "format": "{text}",
         "return-type": "json",
         "exec": "$HOME/.config/mango/scripts/powerprofile.sh",
+        "on-click": "$HOME/.config/mango/scripts/setpowerprofile.sh",
         "tooltip": true,
-        "signal": 8  // Enables signal-based updates (use pkill -RTMIN+8 waybar to trigger)
+        "signal": 8
         // Optional: Add "interval": 30 for polling every 30s if you remove D-Bus monitoring
     }
 }
