@@ -18,7 +18,8 @@
 }
 
 configuration {
-  font: "JetBrains Mono Nerd Font 12";
+  font: "Hack 12";
+  // font: "JetBrains Mono Nerd Font 12";
 
   drun {
     display-name: "";
@@ -29,7 +30,8 @@ configuration {
   }
 
   window {
-    display-name: "";
+    display-name: "> ";
+    // display-name: "";
   }
 
   timeout {
@@ -40,7 +42,7 @@ configuration {
   display-drun: "Application:";
   display-window: "Window:";
   modi: [drun,window];
-  show-icons: true;
+  show-icons: false;
   terminal: "alacritty";
 }
 
