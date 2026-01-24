@@ -6,7 +6,7 @@ if [ -z "$engine" ];then
   search_engine=$(printf "Google\nDuckDuckGo\nYouTube\nBing\nSearx\nOdysee" | sort | wmenu -i -l 6 -p "Choose Search:")
 else
   search_engine="$engine"
-  notify-send "engine:" "$search_engine"
+  # notify-send "engine:" "$search_engine"
 fi
 #
 # case "$search_engine" in 

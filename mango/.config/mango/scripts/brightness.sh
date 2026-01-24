@@ -9,7 +9,6 @@ get_brightness() {
 
 notify() {
     notify-send --icon=video-display -h int:value:"$(get_brightness)%" -h string:synchronous:my-progress "Brightness" "$(get_brightness)%"
-    # notify-send --icon=video-display -h int:value:"$(get_brightness)%" "Brightness" "$(get_brightness)%"
 }
 
 set_brightness() {
@@ -21,15 +20,13 @@ if [ $1 = "up" ]; then
     notify
 elif [ $1 = "down" ]; then
     set_brightness "5%-"
-     notify
+    notify
 elif [ $1 = "setbrightness" ]; then
-		if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-			br=$(echo "" | rofi -dmenu -l 0 -p "Set Brightness:")
-		else
-			br=$(echo "" | dmenu -l 0 -c -p "Set Brightness:")
-		fi
+    br=$(echo "" | wmenu -l 0 -c -w 300 -p "Set Brightness:")
+    # br=$(echo "" | rofi -dmenu -l 0 -p "Set Brightness:")
     if [ $? -eq 0 ] && [ $br -gt -1 ] && [ $br -lt 101 ]; then
         set_brightness "$br%"
+        update_status
         notify
     fi
 else
