@@ -2,6 +2,15 @@
 
 font="Hack Bold 24"
 
+notify() {
+    notify-send "Power Profile" "Set to $1"
+}
+
+update_waybar() {
+    sleep 2
+    pkill -RTMIN+8 waybar
+}
+
 get_profile() {
     profile=$(powerprofilesctl get)
     case "$profile" in
@@ -68,13 +77,19 @@ run_dmenu() {
 
 if [ "$1" = "set" ]; then
 
+  if [ ! -z "$2" ]; then
+    powerprofilesctl set "$2"
+    update_waybar
+    exit 0
+  fi
+
   chosen=$(run_dmenu)
   [ -z "$chosen" ] && exit 0
 
   if [[ -n "${profiles[$chosen]}" ]]; then
       powerprofilesctl set "${profiles[$chosen]}"
-      notify "${profiles[$chosen]}"
-      pkill -RTMIN+8 waybar
+      # notify "${profiles[$chosen]}"
+      update_waybar
   fi
 
   exit 0
