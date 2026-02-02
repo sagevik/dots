@@ -9,6 +9,7 @@
     "dwl/window#title"
   ],
   "modules-center":[
+    "clock"
   ],
   "modules-right": [
     "custom/pacman",
@@ -27,7 +28,7 @@
     "custom/sep",
     "battery",
     "custom/sep",
-    "clock",
+    // "clock",
     "tray"
   ],
   "tray": {
@@ -37,8 +38,9 @@
   "clock": {
       "interval": 60,
       "timezone": "Europe/Oslo",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "{:%Y-%m-%d %H:%M}",
+      "tooltip-format": "<tt><big>{calendar}</big></tt>",
+      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "{:%H:%M}",
       "format-alt": "{:%Y-%m-%d %H:%M}"
   },
   "cpu": {
@@ -86,7 +88,8 @@
       "format": "{icon} {volume}% {format_source}",
       "format-bluetooth": "{icon} {volume}% {format_source}",
       "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": " {format_source}",
+      "format-muted": "M {format_source}",
+      // "format-muted": " {format_source}",
       "format-source": " {volume}%",
       "format-source-muted": "",
       "format-icons": {
