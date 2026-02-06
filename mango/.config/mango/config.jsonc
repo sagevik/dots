@@ -3,7 +3,7 @@
   "modules-left": [
     "ext/workspaces",
     "custom/sep",
-    // "dwl/window"
+    // "dwl/window",
     "dwl/window#layout",
     "custom/sep",
     "dwl/window#title"
@@ -12,6 +12,8 @@
     "clock"
   ],
   "modules-right": [
+    "mpris",
+    "custom/sep",
     "custom/pacman",
     "custom/sep",
     "custom/powerprofile",
@@ -39,7 +41,7 @@
       "interval": 60,
       "timezone": "Europe/Oslo",
       "tooltip-format": "<tt><big>{calendar}</big></tt>",
-      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
       "format": "{:%H:%M}",
       "format-alt": "{:%Y-%m-%d %H:%M}"
   },
@@ -86,19 +88,21 @@
   "pulseaudio": {
       // "scroll-step": 1, // %, can be a float
       "format": "{icon} {volume}% {format_source}",
-      "format-bluetooth": "{icon} {volume}% {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-bluetooth": " {icon} {volume}% {format_source}",
+      // "format-bluetooth": "{icon} {volume}% {format_source}",
+      // "format-bluetooth-muted": " {icon} {format_source}",
+      // "format-bluetooth-muted": " {icon} {format_source}",
       "format-muted": "M {format_source}",
       // "format-muted": " {format_source}",
       "format-source": " {volume}%",
       "format-source-muted": "",
       "format-icons": {
-          "headphone": "",
-          "hands-free": "",
-          "headset": "",
-          "phone": "",
-          "portable": "",
-          "car": "",
+          // "headphone": "",
+          // "hands-free": "",
+          // "headset": "",
+          // "phone": "",
+          // "portable": "",
+          // "car": "",
           "default": ["", "", ""]
       },
       "on-click": "pavucontrol"
@@ -137,10 +141,27 @@
         "format": "{text}",
         "return-type": "json",
         "exec": "$HOME/.config/mango/scripts/powerprofile.sh",
-        "on-click": "$HOME/.config/mango/scripts/setpowerprofile.sh",
+        "on-click": "$HOME/.config/mango/scripts/powerprofile.sh set",
         "tooltip": true,
         "signal": 8
         // Optional: Add "interval": 30 for polling every 30s if you remove D-Bus monitoring
+  },
+  "mpris": {
+    "format": "   {player_icon} {status_icon} <i>{artist} - {title}</i>",
+    "player": "playerctld",
+    "max-length": 50,
+    "on-click": "playerctl play-pause",
+    "format-paused": "   {player_icon} {status_icon} {artist} - {title}",
+    // "player-icons": {
+    //   "default": "",
+    //   "spotify": " ",
+    //   "mpv": " "
+    // },
+    "status-icons": {
+      "paused": "⏸",
+      "playing": "▶"
     }
+  }
 }
+
 
