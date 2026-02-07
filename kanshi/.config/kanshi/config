@@ -1,0 +1,10 @@
+profile laptop {
+  output eDP-1 enable mode 1920x1200@59.95Hz
+  exec $HOME/.config/mango/scripts/setup_displays.sh
+}
+
+profile any {
+  output eDP-1 enable mode 1920x1200@59.95Hz
+  output "*" enable
+  exec $HOME/.config/mango/scripts/setup_displays.sh
+}
