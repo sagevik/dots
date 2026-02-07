@@ -4,7 +4,7 @@
 # This script:
 # 1) Finds the external output(s) (non-eDP/LVDS/DSI) that are enabled.
 # 2) For the first external output, picks its maximum resolution by pixel area.
-# 3) Enables eDP at 1920x1080 on the left (0,0).
+# 3) Enables eDP at 1920x1200 on the left (0,0).
 # 4) Places the external output immediately to the right (1920,0) at its max resolution.
 #
 # If you have multiple externals, it will configure the first one found.
@@ -59,26 +59,26 @@ read -r external_name external_max_res <<<"$(
 )"
 
 if [[ -z "$external_name" || -z "$external_max_res" ]]; then
-  echo "No enabled external outputs found. Will still enable ${edp_name} at 1920x1080 on the left."
-  notify-send "Display Layout" "No enabled external outputs found.\nWill still enable ${edp_name}: 1920x1080 at (0,0)"
-  # Ensure eDP on at 1920x1080, positioned at 0,0
-  wlr-randr --output "$edp_name" --on --mode 1920x1080 --pos 0,0
+  echo "No enabled external outputs found. Will still enable ${edp_name} at 1920x1200 on the left."
+  notify-send "Display Layout" "No enabled external outputs found.\nWill still enable ${edp_name}: 1920x1200 at (0,0)"
+  # Ensure eDP on at 1920x1200, positioned at 0,0
+  wlr-randr --output "$edp_name" --on --mode 1920x1200 --pos 0,0
   exit 0
 fi
 
 echo "Detected external output: $external_name (max: $external_max_res)"
-echo "Ensuring internal eDP output: $edp_name at 1920x1080 on the left."
+echo "Ensuring internal eDP output: $edp_name at 1920x1200 on the left."
 
-# 1) Enable and place the eDP (internal) at 1920x1080 on the left
-wlr-randr --output "$edp_name" --on --mode 1920x1080 --pos 0,0
+# 1) Enable and place the eDP (internal) at 1920x1200 on the left
+wlr-randr --output "$edp_name" --on --mode 1920x1200 --pos 0,0
 
 # 2) Enable and place external to the right of eDP
 #    Since eDP is 1920 wide, external goes at X=1920, Y=0
 wlr-randr --output "$external_name" --on --mode "$external_max_res" --pos 1920,0
 
 echo "Layout applied:"
-echo "  ${edp_name}: 1920x1080 at (0,0)"
+echo "  ${edp_name}: 1920x1200 at (0,0)"
 echo "  ${external_name}: ${external_max_res} at (1920,0)"
 
-notify-send "Display Layout" "INT:${edp_name}: 1920x1080 at (0,0)\nEXT:${external_name}: ${external_max_res} at (1920,0)"
+notify-send "Display Layout" "INT:${edp_name}: 1920x1200 at (0,0)\nEXT:${external_name}: ${external_max_res} at (1920,0)"
 
