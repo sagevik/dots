@@ -15,15 +15,15 @@ get_profile() {
     profile=$(powerprofilesctl get)
     case "$profile" in
         "balanced")
-            icon=" "
+            icon=""
             text="Balanced"
             ;;
         "performance")
-            icon="󱐋"
+            icon="󰪥"
             text="Performance"
             ;;
         "power-saver")
-            icon="󰑌 "
+            icon="󰄰"
             text="Power Saver"
             ;;
         *)
@@ -38,9 +38,9 @@ get_profile() {
 }
 
 declare -A profiles=(
-  [" Balanced"]="balanced"
-  ["󱐋 Performance"]="performance"
-  ["󰑌 Power saver"]="power-saver"
+  [" Balanced"]="balanced"
+  ["󰪥 Performance"]="performance"
+  ["󰄰 Power saver"]="power-saver"
 )
 
 get_current_profile_key() {

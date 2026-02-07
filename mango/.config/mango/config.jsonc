@@ -3,7 +3,6 @@
   "modules-left": [
     "ext/workspaces",
     "custom/sep",
-    // "dwl/window",
     "dwl/window#layout",
     "custom/sep",
     "dwl/window#title"
@@ -12,11 +11,9 @@
     "clock"
   ],
   "modules-right": [
-    "mpris",
-    "custom/sep",
     "custom/pacman",
     "custom/sep",
-    "custom/powerprofile",
+    "mpris",
     "custom/sep",
     "pulseaudio",
     "custom/sep",
@@ -30,7 +27,7 @@
     "custom/sep",
     "battery",
     "custom/sep",
-    // "clock",
+    "custom/powerprofile",
     "tray"
   ],
   "tray": {
@@ -41,7 +38,6 @@
       "interval": 60,
       "timezone": "Europe/Oslo",
       "tooltip-format": "<tt><big>{calendar}</big></tt>",
-      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
       "format": "{:%H:%M}",
       "format-alt": "{:%Y-%m-%d %H:%M}"
   },
@@ -91,8 +87,8 @@
       "format-bluetooth": " {icon} {volume}% {format_source}",
       // "format-bluetooth": "{icon} {volume}% {format_source}",
       // "format-bluetooth-muted": " {icon} {format_source}",
-      // "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": "M {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
       // "format-muted": " {format_source}",
       "format-source": " {volume}%",
       "format-source-muted": "",
@@ -147,11 +143,11 @@
         // Optional: Add "interval": 30 for polling every 30s if you remove D-Bus monitoring
   },
   "mpris": {
-    "format": "   {player_icon} {status_icon} <i>{artist} - {title}</i>",
+    "format": "{status_icon} {artist} - {title}",
     "player": "playerctld",
     "max-length": 50,
     "on-click": "playerctl play-pause",
-    "format-paused": "   {player_icon} {status_icon} {artist} - {title}",
+    // "format-paused": "{player_icon} {status_icon} {artist} - {title}",
     // "player-icons": {
     //   "default": "",
     //   "spotify": " ",

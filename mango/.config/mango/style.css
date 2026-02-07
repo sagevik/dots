@@ -231,20 +231,20 @@ label:focus {
 
 #custom-sep {
     padding: 0 0px;
-    margin: 0px 2px;
+    margin: 0px 0px;
     color: @fg;
     background-color: @bg;
 }
 
 #custom-powerprofile {
-    font-size: 16px;
-    padding: 0px 1px 0px 1px;
+    padding: 0px 5px 0px 1px;
+    margin: 0px 5px 0px 0px;
     color: @fg;
 }
 
 #custom-powerprofile:hover {
-    font-size: 16px;
-    padding: 0px 1px 0px 1px;
+    /* font-size: 16px; */
+    /* padding: 0px 4px 0px 1px; */
     color: @bg;
     background-color: @wact;
 }
@@ -261,4 +261,9 @@ label:focus {
     margin: 0px 0px 0px -8px;
     color: @fg;
     /* background-color: @bg; */
+}
+
+#mpris {
+    margin: 0px 20px 0px 0px;
+    color: @fg;
 }
