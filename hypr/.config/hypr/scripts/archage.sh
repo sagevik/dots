@@ -33,6 +33,6 @@ if [[ "$1" == "sec" ]]; then
     printf "%d days, %d hours, %d minutes, %d seconds\n" $days $hours $mins $secs
 else
     # Default: only full days and uptime
-    echo "$days | $udays:$uhours:$umins"
+    echo "$days"
 fi
 
